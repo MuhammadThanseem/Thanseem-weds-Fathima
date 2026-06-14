@@ -37,7 +37,7 @@ export default function MusicPlayer() {
   return (
     <button
       onClick={toggleMusic}
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#A67C52] text-white flex items-center justify-center shadow-lg"
+      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center shadow-lg btn-modern"
     >
       {playing ? <FaPause /> : <FaPlay />}
     </button>

@@ -5,12 +5,12 @@ import { weddingData } from "@/data/wedding";
 
 export default function CountdownSection() {
   return (
-    <section className="py-24 text-center floral-bg">
-      <p className="tracking-[5px] uppercase text-sm text-[#A67C52]">
+    <section className="py-20 text-center floral-bg px-4 sm:px-6 lg:px-8">
+      <p className="tracking-[5px] uppercase text-sm text-primary">
         Countdown
       </p>
 
-      <h2 className="font-heading text-5xl mt-4 mb-12">
+      <h2 className="font-heading text-3xl md:text-5xl mt-4 mb-8">
         Until Our Big Day
       </h2>
 
@@ -42,8 +42,8 @@ function TimeCard({
   label: string;
 }) {
   return (
-    <div className="invitation-card p-8">
-      <div className="font-heading text-5xl text-[#A67C52]">
+    <div className="invitation-card p-6 md:p-8">
+      <div className="font-heading text-3xl md:text-5xl text-primary">
         {value}
       </div>
 

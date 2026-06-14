@@ -2,12 +2,12 @@ import { weddingData } from "@/data/wedding";
 
 export default function VenueSection() {
   return (
-    <section className="py-28 px-6">
-      <p className="uppercase tracking-[5px] text-center text-[#A67C52]">
+    <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <p className="uppercase tracking-[5px] text-center text-primary">
         Venue
       </p>
 
-      <h2 className="font-heading text-5xl text-center mt-4 mb-20">
+      <h2 className="font-heading text-3xl md:text-5xl text-center mt-4 mb-12">
         Find Your Way
       </h2>
 
@@ -16,9 +16,9 @@ export default function VenueSection() {
           (event) => (
             <div
               key={event.title}
-              className="invitation-card p-10"
+              className="invitation-card p-6 md:p-10"
             >
-              <h3 className="font-heading text-3xl">
+              <h3 className="font-heading text-xl md:text-3xl">
                 {event.title}
               </h3>
 
@@ -26,17 +26,17 @@ export default function VenueSection() {
                 {event.venue}
               </p>
 
-              <p className="text-gray-600 mt-2">
+              <p className="text-muted mt-2">
                 {event.address}
               </p>
 
               <a
                 href={event.mapLink}
                 target="_blank"
-                className="inline-block mt-8 px-8 py-4 rounded-full bg-[#A67C52] text-white"
+                className="inline-block w-full md:w-auto text-center mt-6 md:mt-8 px-6 md:px-8 py-3 md:py-4 rounded-full bg-primary text-white btn-modern"
               >
                 Get Directions
-              </a>
+              </a> 
             </div>
           )
         )}

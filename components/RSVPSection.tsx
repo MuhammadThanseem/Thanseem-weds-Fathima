@@ -25,13 +25,13 @@ export default function RSVPSection() {
   }
 
   return (
-    <section className="py-28 px-6 floral-bg">
-      <div className="max-w-xl mx-auto invitation-card p-10">
-        <p className="uppercase tracking-[5px] text-center text-[#A67C52]">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 floral-bg">
+      <div className="max-w-xl mx-auto invitation-card p-6 md:p-10">
+        <p className="uppercase tracking-[5px] text-center text-primary">
           RSVP
         </p>
 
-        <h2 className="font-heading text-5xl text-center mt-4 mb-10">
+        <h2 className="font-heading text-3xl md:text-5xl text-center mt-4 mb-6">
           Will You Join Us?
         </h2>
 
@@ -43,12 +43,12 @@ export default function RSVPSection() {
             type="text"
             required
             placeholder="Your Name"
-            className="w-full border rounded-xl p-4"
+            className="w-full border border-neutral-200 rounded-xl p-4 bg-white"
           />
 
           <select
             required
-            className="w-full border rounded-xl p-4"
+            className="w-full border border-neutral-200 rounded-xl p-4 bg-white"
           >
             <option value="">
               Select Response
@@ -65,7 +65,7 @@ export default function RSVPSection() {
 
           <button
             type="submit"
-            className="w-full py-4 rounded-full bg-[#A67C52] text-white"
+            className="w-full py-4 rounded-full bg-primary text-white btn-modern"
           >
             Submit RSVP
           </button>

@@ -1,7 +1,7 @@
 export const colors = {
-  primary: "#A67C52",
-  secondary: "#FFF7F0",
-  accent: "#EAC9C1",
-  gold: "#C9A227",
-  text: "#4B2E2E",
+  primary: "#BFA789",
+  secondary: "#FBF7F1",
+  accent: "#CBB78E",
+  gold: "#CBB78E",
+  text: "#3B2B26",
 };

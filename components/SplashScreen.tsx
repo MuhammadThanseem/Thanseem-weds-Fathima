@@ -23,17 +23,17 @@ export default function SplashScreen() {
         }}
         className="text-center"
       >
-        <p className="uppercase tracking-[8px] text-[#A67C52] text-sm">
+        <p className="uppercase tracking-[8px] text-primary text-xs md:text-sm">
           Bismillahir Rahmanir Raheem
         </p>
 
-        <div className="my-8 text-7xl">
+        <div className="my-8 text-5xl md:text-7xl">
           🌙
         </div>
 
-        <h1 className="font-heading text-5xl text-[#4B2E2E]">
+        <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl text-foreground">
           Wedding Invitation
-        </h1>
+        </h1> 
       </motion.div>
     </motion.div>
   );

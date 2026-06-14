@@ -24,9 +24,9 @@ export default function OpenInvitation({
           delay: 1,
           duration: 1,
         }}
-        className="invitation-card p-10 text-center"
+        className="invitation-card p-6 md:p-10 text-center max-w-lg w-full mx-4 md:mx-0"
       >
-        <div className="text-6xl mb-6">
+        <div className="text-4xl md:text-6xl mb-6">
           💌
         </div>
 
@@ -34,7 +34,7 @@ export default function OpenInvitation({
           Fathima Barza
         </h2>
 
-        <p className="text-[#C9A227] mb-3">
+        <p className="text-accent mb-3">
           &
         </p>
 
@@ -44,7 +44,7 @@ export default function OpenInvitation({
 
         <button
           onClick={onOpen}
-          className="mt-10 px-10 py-4 rounded-full bg-[#A67C52] text-white hover:scale-105 transition"
+          className="mt-6 md:mt-10 w-full md:inline-block md:w-auto px-6 md:px-10 py-3 md:py-4 rounded-full bg-primary text-white hover:scale-105 transition btn-modern"
         >
           Open Invitation
         </button>

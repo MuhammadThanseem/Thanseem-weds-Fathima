@@ -2,12 +2,12 @@ import { weddingData } from "@/data/wedding";
 
 export default function EventsSection() {
   return (
-    <section className="py-28 px-6 floral-bg">
-      <p className="uppercase tracking-[5px] text-center text-[#A67C52]">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 floral-bg">
+      <p className="uppercase tracking-[5px] text-center text-primary">
         Events
       </p>
 
-      <h2 className="font-heading text-5xl text-center mt-4 mb-20">
+      <h2 className="font-heading text-3xl md:text-5xl text-center mt-4 mb-12">
         Join Our Celebration
       </h2>
 
@@ -16,9 +16,9 @@ export default function EventsSection() {
           (event) => (
             <div
               key={event.title}
-              className="invitation-card p-12"
+              className="invitation-card p-6 md:p-12"
             >
-              <h3 className="font-heading text-4xl">
+              <h3 className="font-heading text-2xl md:text-4xl">
                 {event.title}
               </h3>
 
