@@ -27,7 +27,9 @@ export default function SectionPetals({
   useEffect(() => {
     const media = window.matchMedia("(max-width: 640px)");
     const updateCount = () => {
-      setPetalCount(media.matches ? Math.max(5, Math.round(count * 0.55)) : count);
+      setPetalCount(
+        media.matches ? Math.max(5, Math.round(count * 0.55)) : count,
+      );
     };
 
     updateCount();
@@ -35,29 +37,38 @@ export default function SectionPetals({
     return () => media.removeEventListener("change", updateCount);
   }, [count]);
 
+  function fixed(value: number, digits = 4) {
+    return value.toFixed(digits);
+  }
+
   const petals = useMemo(
     () =>
       Array.from({ length: petalCount }, (_, index) => {
         const rotate = Math.round(seeded(index, seed + 4) * 360);
+
         return {
-          left: `${seeded(index, seed) * 100}%`,
-          delay: `${seeded(index, seed + 1) * 6}s`,
-          duration: `${10 + seeded(index, seed + 2) * 8}s`,
-          swayX: `${-35 + seeded(index, seed + 3) * 70}px`,
+          left: `${fixed(seeded(index, seed) * 100)}%`,
+          delay: `${fixed(seeded(index, seed + 1) * 6)}s`,
+          duration: `${fixed(10 + seeded(index, seed + 2) * 8)}s`,
+          swayX: `${fixed(-35 + seeded(index, seed + 3) * 70)}px`,
           rotateEnd: `${rotate}deg`,
           rotateMid: `${Math.round(rotate * 0.5)}deg`,
-          size: 12 + seeded(index, seed + 5) * 14,
+          size: Number(fixed(12 + seeded(index, seed + 5) * 14)),
           isSymbol: index % 3 === 0,
           symbol: PETAL_SYMBOLS[index % PETAL_SYMBOLS.length],
-          color:
-            (variant === "light" ? PETAL_COLORS_LIGHT : PETAL_COLORS_DARK)[index % 4],
+          color: (variant === "light" ? PETAL_COLORS_LIGHT : PETAL_COLORS_DARK)[
+            index % 4
+          ],
         };
       }),
-    [petalCount, seed, variant]
+    [petalCount, seed, variant],
   );
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]" aria-hidden="true">
+    <div
+      className="absolute inset-0 overflow-hidden pointer-events-none z-[1]"
+      aria-hidden="true"
+    >
       {petals.map((petal, index) =>
         petal.isSymbol ? (
           <span
@@ -91,7 +102,7 @@ export default function SectionPetals({
               ["--rotate-mid" as string]: petal.rotateMid,
             }}
           />
-        )
+        ),
       )}
     </div>
   );

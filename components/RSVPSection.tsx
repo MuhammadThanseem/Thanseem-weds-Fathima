@@ -4,10 +4,14 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import SectionHeader from "@/components/SectionHeader";
 import SectionPetals from "@/components/SectionPetals";
+import { toast } from "sonner";
 
 export default function RSVPSection() {
   const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const initialFormData = {
     name: "",
     email: "",
     phone: "",
@@ -15,19 +19,56 @@ export default function RSVPSection() {
     response: "",
     dietary: "",
     message: "",
-  });
+  };
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.phone && formData.response) {
-      setSubmitted(true);
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      console.log("Status:", response.status);
+      console.log("Response:", data);
+
+      if (response.status === 200) {
+        toast.success("RSVP submitted successfully! 🎉", {
+          description: "Thank you for celebrating this special day with us.",
+        });
+
+        setSubmitted(true);
+        setFormData(initialFormData);
+      } else {
+        toast.error("Unable to submit RSVP", {
+          description: data.message,
+        });
+      }
+    } catch (error) {
+      toast.error("Something went wrong", {
+        description: "Please try again later.",
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -56,7 +97,8 @@ export default function RSVPSection() {
             transition={{ duration: 0.7, type: "spring", stiffness: 120 }}
             className="w-20 h-20 mx-auto mb-8 rounded-full flex items-center justify-center text-3xl"
             style={{
-              background: "linear-gradient(135deg, var(--black), var(--black-muted))",
+              background:
+                "linear-gradient(135deg, var(--black), var(--black-muted))",
               color: "var(--beige)",
             }}
           >
@@ -78,7 +120,8 @@ export default function RSVPSection() {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="mt-6 text-muted font-light text-lg"
           >
-            Your RSVP has been received. We look forward to celebrating with you!
+            Your RSVP has been received. We look forward to celebrating with
+            you!
           </motion.p>
 
           <motion.p
@@ -115,9 +158,27 @@ export default function RSVPSection() {
 
         <form onSubmit={handleSubmit} className="space-y-5 -mt-4">
           {[
-            { name: "name", label: "Full Name *", type: "text", placeholder: "Enter your name", required: true },
-            { name: "email", label: "Email Address *", type: "email", placeholder: "your@email.com", required: true },
-            { name: "phone", label: "Phone Number *", type: "tel", placeholder: "+91 00000 00000", required: true },
+            {
+              name: "name",
+              label: "Full Name *",
+              type: "text",
+              placeholder: "Enter your name",
+              required: true,
+            },
+            {
+              name: "email",
+              label: "Email Address *",
+              type: "email",
+              placeholder: "your@email.com",
+              required: true,
+            },
+            {
+              name: "phone",
+              label: "Phone Number *",
+              type: "tel",
+              placeholder: "+91 00000 00000",
+              required: true,
+            },
           ].map((field, i) => (
             <motion.div
               key={field.name}
@@ -168,7 +229,9 @@ export default function RSVPSection() {
             >
               {["1", "2", "3", "4", "5", "6+"].map((n) => (
                 <option key={n} value={n}>
-                  {n === "6+" ? "6 or More" : `${n} Guest${n !== "1" ? "s" : ""}`}
+                  {n === "6+"
+                    ? "6 or More"
+                    : `${n} Guest${n !== "1" ? "s" : ""}`}
                 </option>
               ))}
             </select>
@@ -238,6 +301,21 @@ export default function RSVPSection() {
             />
           </motion.div>
 
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="rounded-2xl p-4 text-sm text-center"
+              style={{
+                background: "rgba(239, 68, 68, 0.08)",
+                color: "#dc2626",
+                border: "1px solid rgba(239, 68, 68, 0.2)",
+              }}
+            >
+              {error}
+            </motion.div>
+          )}
+
           <motion.button
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -246,16 +324,20 @@ export default function RSVPSection() {
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
             type="submit"
-            className="w-full py-4 rounded-full font-light btn-modern transition-all tracking-wider uppercase text-sm"
+            className="w-full py-4 rounded-full font-light btn-modern transition-all tracking-wider uppercase text-sm disabled:opacity-70 disabled:cursor-not-allowed"
             style={{
-              background: "linear-gradient(135deg, var(--black), var(--black-muted))",
+              background:
+                "linear-gradient(135deg, var(--black), var(--black-muted))",
               color: "var(--beige-light)",
             }}
+            disabled={loading}
           >
-            Submit RSVP
+            {loading ? "Submitting..." : "Submit RSVP"}
           </motion.button>
 
-          <p className="text-xs text-muted/60 text-center font-light">* Required fields</p>
+          <p className="text-xs text-muted/60 text-center font-light">
+            * Required fields
+          </p>
         </form>
       </motion.div>
     </motion.section>

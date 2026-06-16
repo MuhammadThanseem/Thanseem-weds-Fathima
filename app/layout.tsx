@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Poppins } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -26,10 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${cormorant.variable} ${poppins.variable}`}
-      >
+      <body className={`${cormorant.variable} ${poppins.variable}`}>
         {children}
+        <Toaster position="top-center" richColors closeButton duration={4000} />
       </body>
     </html>
   );
