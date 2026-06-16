@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import SectionHeader from "@/components/SectionHeader";
 
 export default function CoupleSection() {
   return (
@@ -9,22 +10,26 @@ export default function CoupleSection() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-primary/5 to-transparent"
+      viewport={{ once: true, margin: "-80px" }}
+      id="couple"
+      className="section-light py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        {/* Image with enhanced frame */}
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16 items-center">
         <motion.div
-          initial={{ opacity: 0, x: -50, scale: 0.95 }}
-          whileInView={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, x: -60, rotateY: -8 }}
+          whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+          transition={{ duration: 0.9, type: "spring", stiffness: 80 }}
           viewport={{ once: true }}
-          className="relative"
+          className="relative max-w-xs sm:max-w-sm mx-auto md:max-w-none md:mx-0 w-full"
         >
-          {/* Decorative frame background */}
-          <div className="absolute -inset-6 bg-gradient-to-br from-primary/10 to-accent/10 rounded-[40px] blur-2xl" />
+          <motion.div
+            className="absolute -inset-4 sm:-inset-6 md:-inset-8 rounded-[48px] pointer-events-none"
+            style={{ background: "linear-gradient(135deg, rgba(203,183,140,0.15), rgba(13,13,13,0.05))" }}
+            animate={{ opacity: [0.5, 0.8, 0.5] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
 
-          <div className="relative rounded-[40px] overflow-hidden premium-shadow">
+          <div className="relative rounded-[40px] overflow-hidden premium-shadow animated-border">
             <Image
               src="/images/couple1.avif"
               alt="Couple"
@@ -32,70 +37,63 @@ export default function CoupleSection() {
               height={700}
               className="w-full h-auto object-cover"
             />
+            <motion.div
+              className="absolute inset-0"
+              style={{
+                background: "linear-gradient(45deg, transparent 40%, rgba(203,183,140,0.08) 50%, transparent 60%)",
+              }}
+              animate={{ x: ["-100%", "200%"] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "linear", repeatDelay: 3 }}
+            />
           </div>
         </motion.div>
 
-        {/* Text content */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+          transition={{ duration: 0.9, delay: 0.15 }}
           viewport={{ once: true }}
+          className="text-center md:text-left"
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="uppercase tracking-[5px] text-primary font-light text-sm"
-          >
-            The Couple
-          </motion.p>
+          <SectionHeader label="The Couple" title="Two Hearts, One Journey" />
 
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: "60px" }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="decorative-line h-1 my-6"
-          />
-
-          <motion.h2
+          <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="font-heading text-3xl md:text-5xl lg:text-6xl text-foreground"
+            className="font-heading text-2xl sm:text-3xl md:text-4xl text-foreground -mt-6 sm:-mt-8 mb-2"
           >
             Fathima Barza
-          </motion.h2>
+          </motion.h3>
 
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
-            className="text-accent text-2xl md:text-4xl my-4 font-light"
+            className="text-accent text-xl sm:text-2xl my-3 font-light"
           >
             &
           </motion.p>
 
-          <motion.h2
+          <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
             viewport={{ once: true }}
-            className="font-heading text-3xl md:text-5xl lg:text-6xl text-foreground"
+            className="font-heading text-2xl sm:text-3xl md:text-4xl text-foreground mb-6 sm:mb-8"
           >
             Muhammed Saneed
-          </motion.h2>
+          </motion.h3>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
             viewport={{ once: true }}
-            className="mt-8 md:mt-10 leading-8 md:leading-9 text-muted text-base md:text-lg font-light"
+            className="leading-7 sm:leading-8 md:leading-9 text-muted text-sm sm:text-base md:text-lg font-light max-w-md mx-auto md:mx-0 md:max-w-none md:border-l-2 md:pl-6 px-2 sm:px-4 md:px-0"
+            style={{ borderColor: "var(--beige)" }}
           >
             With the blessings of Allah and our families, we joyfully invite you to celebrate our wedding
             and share in the beginning of our forever.

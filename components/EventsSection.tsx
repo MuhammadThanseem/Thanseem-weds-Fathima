@@ -1,5 +1,8 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { weddingData } from "@/data/wedding";
+import SectionHeader from "@/components/SectionHeader";
 
 export default function EventsSection() {
   return (
@@ -7,103 +10,90 @@ export default function EventsSection() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="py-24 px-4 sm:px-6 lg:px-8 relative"
+      viewport={{ once: true, margin: "-80px" }}
+      id="events"
+      className="section-light py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <SectionHeader label="Events" title="Join Our Celebration" />
 
-      <div className="relative z-10">
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="uppercase tracking-[5px] text-center text-primary font-light text-sm"
-        >
-          Events
-        </motion.p>
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+          {[weddingData.nikah, weddingData.reception].map((event, index) => (
+            <motion.div
+              key={event.title}
+              initial={{ opacity: 0, y: 40, rotateX: 8 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              transition={{ duration: 0.7, delay: index * 0.15 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -6 }}
+              className="group invitation-card hover-lift p-6 sm:p-8 md:p-12 relative overflow-hidden text-center md:text-left"
+            >
+              <div
+                className="absolute top-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+                style={{
+                  background: "linear-gradient(90deg, transparent, var(--beige), transparent)",
+                }}
+              />
 
-        <motion.h2
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
-          className="font-heading text-4xl md:text-5xl text-center mt-6 mb-4"
-        >
-          Join Our Celebration
-        </motion.h2>
+              <div className="relative z-10">
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: index * 0.15 + 0.1 }}
+                  viewport={{ once: true }}
+                  className="inline-block text-xs uppercase tracking-[4px] font-light mb-4"
+                  style={{ color: "var(--beige-warm)" }}
+                >
+                  Event {index + 1}
+                </motion.span>
 
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: "80px" }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="decorative-line h-1 mx-auto mb-16"
-        />
+                <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl text-foreground">
+                  {event.title}
+                </h3>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
-          {[weddingData.nikah, weddingData.reception].map(
-            (event, index) => (
-              <motion.div
-                key={event.title}
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                viewport={{ once: true }}
-                className="group invitation-card hover-lift p-8 md:p-12 relative overflow-hidden"
-              >
-                {/* Hover background effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="decorative-line shimmer-line h-px my-5 sm:my-6 w-16 mx-auto md:mx-0" />
 
-                <div className="relative z-10">
-                  <motion.h3
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.15 + 0.1 }}
-                    viewport={{ once: true }}
-                    className="font-heading text-3xl md:text-4xl text-foreground"
-                  >
-                    {event.title}
-                  </motion.h3>
-
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "40px" }}
-                    transition={{ duration: 0.6, delay: index * 0.15 + 0.2 }}
-                    viewport={{ once: true }}
-                    className="decorative-line h-1 my-6"
-                  />
-
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.15 + 0.15 }}
-                    viewport={{ once: true }}
-                    className="space-y-4 mt-8"
-                  >
-                    <EventDetail label="Date" value={event.date} />
-                    <EventDetail label="Time" value={event.time} />
-                    <EventDetail label="Venue" value={event.venue} />
-                    <EventDetail label="Address" value={event.address} />
-                  </motion.div>
+                <div className="space-y-5 mt-6">
+                  <EventDetail label="Date" value={event.date} index={index} delay={0.2} />
+                  <EventDetail label="Time" value={event.time} index={index} delay={0.25} />
+                  <EventDetail label="Venue" value={event.venue} index={index} delay={0.3} />
+                  <EventDetail label="Address" value={event.address} index={index} delay={0.35} />
                 </div>
-              </motion.div>
-            )
-          )}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </motion.section>
   );
 }
 
-function EventDetail({ label, value }: { label: string; value: string }) {
+function EventDetail({
+  label,
+  value,
+  index,
+  delay,
+}: {
+  label: string;
+  value: string;
+  index: number;
+  delay: number;
+}) {
   return (
-    <div className="flex flex-col md:flex-row md:items-baseline gap-2">
-      <strong className="text-primary font-light uppercase tracking-wide text-sm">
-        {label}:
+    <motion.div
+      initial={{ opacity: 0, x: -15 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.15 + delay }}
+      viewport={{ once: true }}
+      className="flex flex-col md:flex-row gap-1 md:gap-3 items-center md:items-baseline text-center md:text-left"
+    >
+      <strong
+        className="font-light uppercase tracking-[3px] text-xs flex-shrink-0"
+        style={{ color: "var(--black-muted)" }}
+      >
+        {label}
       </strong>
       <span className="text-muted font-light">{value}</span>
-    </div>
+    </motion.div>
   );
 }

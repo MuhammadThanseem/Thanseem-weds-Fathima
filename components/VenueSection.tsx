@@ -1,112 +1,90 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { weddingData } from "@/data/wedding";
+import SectionHeader from "@/components/SectionHeader";
 
 export default function VenueSection() {
-  // Google Maps embed URL for Calicut, Kerala wedding location
   const mapsEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.8474845326743!2d75.78412!3d11.2588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6599999999999%3A0x123456789!2sCalicut%2C%20Kerala!5e0!3m2!1sen!2sin!4v1234567890`;
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="py-24 px-4 sm:px-6 lg:px-8 relative"
+      viewport={{ once: true, margin: "-80px" }}
+      id="venue"
+      className="section-dark py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <SectionHeader label="Venue" title="Find Your Way" dark />
 
-      <div className="relative z-10">
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="uppercase tracking-[5px] text-center text-primary font-light text-sm"
-        >
-          Venue
-        </motion.p>
-
-        <motion.h2
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
-          className="font-heading text-4xl md:text-5xl text-center mt-6 mb-4"
-        >
-          Find Your Way
-        </motion.h2>
-
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: "80px" }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="decorative-line h-1 mx-auto mb-16"
-        />
-
-        {/* Venue Cards */}
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 mb-16">
-          {[weddingData.nikah, weddingData.reception].map(
-            (event, index) => (
-              <motion.div
-                key={event.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="invitation-card hover-lift p-8 md:p-10"
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-16">
+          {[weddingData.nikah, weddingData.reception].map((event, index) => (
+            <motion.div
+              key={event.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -4 }}
+              className="invitation-card hover-lift p-6 sm:p-8 md:p-10 text-center md:text-left"
+            >
+              <h3
+                className="font-heading text-xl sm:text-2xl md:text-3xl"
+                style={{ color: "var(--beige-light)" }}
               >
-                <h3 className="font-heading text-2xl md:text-3xl text-foreground">
-                  {event.title}
-                </h3>
+                {event.title}
+              </h3>
 
-                <div className="decorative-line h-1 my-6 w-12" />
+              <div className="decorative-line h-px my-5 sm:my-6 w-12 mx-auto md:mx-0" />
 
-                <p className="text-foreground font-light leading-relaxed">
-                  {event.venue}
-                </p>
+              <p className="font-light leading-relaxed" style={{ color: "var(--beige-light)" }}>
+                {event.venue}
+              </p>
 
-                <p className="text-muted mt-3 text-sm">
-                  {event.address}
-                </p>
+              <p className="mt-3 text-sm font-light" style={{ color: "rgba(232,223,208,0.6)" }}>
+                {event.address}
+              </p>
 
-                <div className="flex gap-4 mt-8">
-                  <a
-                    href={event.mapLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 text-center px-6 py-4 rounded-full bg-primary text-white btn-modern hover:shadow-lg transition-all"
-                  >
-                    Directions
-                  </a>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="px-6 py-4 rounded-full bg-accent/10 text-primary border-2 border-primary/20 text-center font-light cursor-default"
-                  >
-                    📍 {event.time}
-                  </motion.div>
+              <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                <motion.a
+                  href={event.mapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="flex-1 text-center px-6 py-4 rounded-full font-light btn-modern transition-all"
+                  style={{
+                    background: "linear-gradient(135deg, var(--beige), var(--beige-warm))",
+                    color: "var(--black)",
+                  }}
+                >
+                  Get Directions
+                </motion.a>
+                <div
+                  className="px-6 py-4 rounded-full text-center font-light text-sm"
+                  style={{
+                    background: "rgba(203,183,140,0.1)",
+                    color: "var(--beige)",
+                    border: "1px solid rgba(203,183,140,0.2)",
+                  }}
+                >
+                  {event.time}
                 </div>
-              </motion.div>
-            )
-          )}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Google Maps Integration */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
           className="max-w-5xl mx-auto"
         >
-          <motion.div
-            initial={{ scale: 0.95 }}
-            whileInView={{ scale: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="rounded-2xl overflow-hidden premium-shadow"
-          >
+          <div className="rounded-2xl overflow-hidden premium-shadow animated-border">
             <iframe
               src={mapsEmbedUrl}
               width="100%"
@@ -116,22 +94,20 @@ export default function VenueSection() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Wedding Venue Location"
-              className="w-full h-96 md:h-[500px]"
+              className="w-full h-80 md:h-[480px] grayscale-[30%] contrast-[1.1]"
             />
-          </motion.div>
+          </div>
 
-          {/* Location Info Below Map */}
-          <motion.div
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="mt-8 text-center"
+            className="mt-8 text-center font-light text-sm tracking-wide"
+            style={{ color: "rgba(203,183,140,0.6)" }}
           >
-            <p className="text-muted font-light">
-              📍 Calicut, Kerala • Wedding Date: 08 August 2026
-            </p>
-          </motion.div>
+            Calicut, Kerala &nbsp;·&nbsp; 08 August 2026
+          </motion.p>
         </motion.div>
       </div>
     </motion.section>

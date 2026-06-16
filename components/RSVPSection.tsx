@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import SectionHeader from "@/components/SectionHeader";
 
 export default function RSVPSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -16,52 +17,55 @@ export default function RSVPSection() {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (
-      formData.name &&
-      formData.email &&
-      formData.phone &&
-      formData.response
-    ) {
+    if (formData.name && formData.email && formData.phone && formData.response) {
       setSubmitted(true);
     }
+  };
+
+  const inputClass =
+    "w-full border rounded-2xl p-4 focus:outline-none transition-all duration-300 font-light placeholder:opacity-50";
+
+  const inputStyle = {
+    borderColor: "rgba(203,183,140,0.25)",
+    background: "rgba(255,255,255,0.6)",
+    color: "var(--foreground)",
   };
 
   if (submitted) {
     return (
       <motion.section
-        initial={{ opacity: 0, scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
-        className="py-28 px-6 text-center flex items-center justify-center min-h-screen"
+        className="section-light py-24 sm:py-32 px-4 sm:px-6 text-center flex items-center justify-center min-h-[60vh] sm:min-h-[70vh]"
       >
         <div className="max-w-md">
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-            className="text-6xl mb-6"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ duration: 0.7, type: "spring", stiffness: 120 }}
+            className="w-20 h-20 mx-auto mb-8 rounded-full flex items-center justify-center text-3xl"
+            style={{
+              background: "linear-gradient(135deg, var(--black), var(--black-muted))",
+              color: "var(--beige)",
+            }}
           >
-            ✅
+            ✓
           </motion.div>
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-heading text-5xl md:text-6xl text-foreground"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="font-heading text-4xl sm:text-5xl md:text-6xl text-foreground"
           >
             Thank You!
           </motion.h2>
@@ -69,17 +73,16 @@ export default function RSVPSection() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
             className="mt-6 text-muted font-light text-lg"
           >
-            Your RSVP has been received. We look forward to celebrating with
-            you!
+            Your RSVP has been received. We look forward to celebrating with you!
           </motion.p>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
             className="mt-4 text-primary font-light text-sm"
           >
             A confirmation has been sent to {formData.email}
@@ -94,144 +97,87 @@ export default function RSVPSection() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="py-24 px-4 sm:px-6 lg:px-8 relative"
+      viewport={{ once: true, margin: "-80px" }}
+      id="rsvp"
+      className="section-light py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-accent/5 pointer-events-none" />
-
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.1 }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="relative z-10 max-w-2xl mx-auto glass-effect backdrop-blur-md rounded-[40px] p-8 md:p-12 premium-shadow"
+        className="relative z-10 max-w-2xl mx-auto glass-effect rounded-3xl sm:rounded-[36px] md:rounded-[40px] p-6 sm:p-8 md:p-12 premium-shadow animated-border"
       >
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="uppercase tracking-[5px] text-center text-primary font-light text-sm"
-        >
-          RSVP
-        </motion.p>
+        <SectionHeader label="RSVP" title="Will You Join Us?" />
 
-        <motion.h2
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          viewport={{ once: true }}
-          className="font-heading text-4xl md:text-5xl text-center mt-6 mb-4"
-        >
-          Will You Join Us?
-        </motion.h2>
+        <form onSubmit={handleSubmit} className="space-y-5 -mt-4">
+          {[
+            { name: "name", label: "Full Name *", type: "text", placeholder: "Enter your name", required: true },
+            { name: "email", label: "Email Address *", type: "email", placeholder: "your@email.com", required: true },
+            { name: "phone", label: "Phone Number *", type: "tel", placeholder: "+91 00000 00000", required: true },
+          ].map((field, i) => (
+            <motion.div
+              key={field.name}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.05 }}
+              viewport={{ once: true }}
+            >
+              <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">
+                {field.label}
+              </label>
+              <input
+                type={field.type}
+                name={field.name}
+                value={formData[field.name as keyof typeof formData]}
+                onChange={handleChange}
+                required={field.required}
+                placeholder={field.placeholder}
+                className={inputClass}
+                style={inputStyle}
+                onFocus={(e) => {
+                  e.target.style.borderColor = "var(--beige)";
+                  e.target.style.boxShadow = "0 0 0 3px rgba(203,183,140,0.15)";
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = "rgba(203,183,140,0.25)";
+                  e.target.style.boxShadow = "none";
+                }}
+              />
+            </motion.div>
+          ))}
 
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: "60px" }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="decorative-line h-1 mx-auto mb-10"
-        />
-
-        <form onSubmit={handleSubmit} className="space-y-5">
-          {/* Name Field */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
             viewport={{ once: true }}
           >
-            <label className="block text-sm font-light text-muted mb-2">
-              Full Name *
-            </label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              placeholder="Enter your name"
-              className="w-full border-2 border-primary/20 rounded-2xl p-4 bg-white/50 backdrop-blur focus:outline-none focus:border-primary transition-colors font-light placeholder:text-muted/60"
-            />
-          </motion.div>
-
-          {/* Email Field */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.38 }}
-            viewport={{ once: true }}
-          >
-            <label className="block text-sm font-light text-muted mb-2">
-              Email Address *
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              placeholder="your@email.com"
-              className="w-full border-2 border-primary/20 rounded-2xl p-4 bg-white/50 backdrop-blur focus:outline-none focus:border-primary transition-colors font-light placeholder:text-muted/60"
-            />
-          </motion.div>
-
-          {/* Phone Field */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.41 }}
-            viewport={{ once: true }}
-          >
-            <label className="block text-sm font-light text-muted mb-2">
-              Phone Number *
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              placeholder="+1 (555) 000-0000"
-              className="w-full border-2 border-primary/20 rounded-2xl p-4 bg-white/50 backdrop-blur focus:outline-none focus:border-primary transition-colors font-light placeholder:text-muted/60"
-            />
-          </motion.div>
-
-          {/* Number of Guests */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.44 }}
-            viewport={{ once: true }}
-          >
-            <label className="block text-sm font-light text-muted mb-2">
+            <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">
               Number of Guests
             </label>
             <select
               name="guests"
               value={formData.guests}
               onChange={handleChange}
-              className="w-full border-2 border-primary/20 rounded-2xl p-4 bg-white/50 backdrop-blur focus:outline-none focus:border-primary transition-colors font-light text-muted"
+              className={inputClass}
+              style={inputStyle}
             >
-              <option value="1">1 Guest</option>
-              <option value="2">2 Guests</option>
-              <option value="3">3 Guests</option>
-              <option value="4">4 Guests</option>
-              <option value="5">5 Guests</option>
-              <option value="6+">6 or More</option>
+              {["1", "2", "3", "4", "5", "6+"].map((n) => (
+                <option key={n} value={n}>
+                  {n === "6+" ? "6 or More" : `${n} Guest${n !== "1" ? "s" : ""}`}
+                </option>
+              ))}
             </select>
           </motion.div>
 
-          {/* RSVP Response */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.47 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <label className="block text-sm font-light text-muted mb-2">
+            <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">
               Your Response *
             </label>
             <select
@@ -239,7 +185,8 @@ export default function RSVPSection() {
               value={formData.response}
               onChange={handleChange}
               required
-              className="w-full border-2 border-primary/20 rounded-2xl p-4 bg-white/50 backdrop-blur focus:outline-none focus:border-primary transition-colors font-light text-muted"
+              className={inputClass}
+              style={inputStyle}
             >
               <option value="">Select your response</option>
               <option value="Accept">Joyfully Accept</option>
@@ -248,14 +195,13 @@ export default function RSVPSection() {
             </select>
           </motion.div>
 
-          {/* Dietary Preferences */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
             viewport={{ once: true }}
           >
-            <label className="block text-sm font-light text-muted mb-2">
+            <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">
               Dietary Preferences
             </label>
             <input
@@ -264,18 +210,18 @@ export default function RSVPSection() {
               value={formData.dietary}
               onChange={handleChange}
               placeholder="Vegetarian, Vegan, Halal, etc."
-              className="w-full border-2 border-primary/20 rounded-2xl p-4 bg-white/50 backdrop-blur focus:outline-none focus:border-primary transition-colors font-light placeholder:text-muted/60"
+              className={inputClass}
+              style={inputStyle}
             />
           </motion.div>
 
-          {/* Special Message */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.53 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <label className="block text-sm font-light text-muted mb-2">
+            <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">
               Special Message
             </label>
             <textarea
@@ -284,33 +230,29 @@ export default function RSVPSection() {
               onChange={handleChange}
               placeholder="Share your warm wishes..."
               rows={3}
-              className="w-full border-2 border-primary/20 rounded-2xl p-4 bg-white/50 backdrop-blur focus:outline-none focus:border-primary transition-colors font-light placeholder:text-muted/60 resize-none"
+              className={`${inputClass} resize-none`}
+              style={inputStyle}
             />
           </motion.div>
 
-          {/* Submit Button */}
           <motion.button
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.56 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
             type="submit"
-            className="w-full py-4 rounded-full bg-gradient-to-r from-primary to-accent text-white font-light btn-modern hover:shadow-xl transition-all"
+            className="w-full py-4 rounded-full font-light btn-modern transition-all tracking-wider uppercase text-sm"
+            style={{
+              background: "linear-gradient(135deg, var(--black), var(--black-muted))",
+              color: "var(--beige-light)",
+            }}
           >
             Submit RSVP
           </motion.button>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.59 }}
-            viewport={{ once: true }}
-            className="text-xs text-muted/70 text-center font-light"
-          >
-            * Required fields
-          </motion.p>
+          <p className="text-xs text-muted/60 text-center font-light">* Required fields</p>
         </form>
       </motion.div>
     </motion.section>

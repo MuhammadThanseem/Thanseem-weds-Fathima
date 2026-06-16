@@ -1,72 +1,63 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import Countdown from "react-countdown";
 import { weddingData } from "@/data/wedding";
+import SectionHeader from "@/components/SectionHeader";
 
 export default function CountdownSection() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="py-24 text-center px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      viewport={{ once: true, margin: "-80px" }}
+      className="section-dark py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      {/* Background gradient effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+      <motion.div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse, rgba(203,183,140,0.08) 0%, transparent 70%)",
+        }}
+        animate={{ opacity: [0.4, 0.8, 0.4] }}
+        transition={{ duration: 5, repeat: Infinity }}
+      />
 
-      <div className="relative z-10">
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="tracking-[5px] uppercase text-sm text-primary font-light"
-        >
-          Countdown
-        </motion.p>
+      <div className="relative z-10 max-w-5xl mx-auto">
+        <SectionHeader label="Countdown" title="Until Our Big Day" dark />
 
-        <motion.h2
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
-          className="font-heading text-4xl md:text-5xl mt-6 mb-2"
-        >
-          Until Our Big Day
-        </motion.h2>
-
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: "80px" }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="decorative-line h-1 mx-auto my-8"
-        />
-
-        <Countdown
-          date={new Date(weddingData.weddingDate)}
-          renderer={({
-            days,
-            hours,
-            minutes,
-            seconds,
-          }) => (
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto"
-            >
-              <TimeCard value={days} label="Days" index={0} />
-              <TimeCard value={hours} label="Hours" index={1} />
-              <TimeCard value={minutes} label="Minutes" index={2} />
-              <TimeCard value={seconds} label="Seconds" index={3} />
-            </motion.div>
-          )}
-        />
+        {mounted ? (
+          <Countdown
+            date={new Date(weddingData.weddingDate)}
+            renderer={({ days, hours, minutes, seconds }) => (
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6"
+              >
+                <TimeCard value={days} label="Days" index={0} />
+                <TimeCard value={hours} label="Hours" index={1} />
+                <TimeCard value={minutes} label="Minutes" index={2} />
+                <TimeCard value={seconds} label="Seconds" index={3} />
+              </motion.div>
+            )}
+          />
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+            {["Days", "Hours", "Minutes", "Seconds"].map((label, index) => (
+              <TimeCard key={label} value={0} label={label} index={index} placeholder />
+            ))}
+          </div>
+        )}
       </div>
     </motion.section>
   );
@@ -76,32 +67,38 @@ function TimeCard({
   value,
   label,
   index,
+  placeholder = false,
 }: {
   value: number;
   label: string;
   index: number;
+  placeholder?: boolean;
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+      initial={{ opacity: 0, scale: 0.85, y: 30 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.1 + index * 0.1, type: "spring", stiffness: 100 }}
       viewport={{ once: true }}
-      className="group invitation-card hover-lift p-6 md:p-8 relative overflow-hidden"
+      whileHover={{ scale: 1.04, y: -4 }}
+      className="group invitation-card p-4 sm:p-6 md:p-10 relative overflow-hidden text-center"
     >
-      {/* Animated background on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+        style={{
+          background: "linear-gradient(135deg, rgba(203,183,140,0.08), rgba(203,183,140,0.02))",
+        }}
+      />
 
       <div className="relative z-10">
-        <motion.div
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="font-heading text-4xl md:text-5xl text-primary font-bold"
-        >
-          {String(value).padStart(2, "0")}
-        </motion.div>
+        <div className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gold-gradient">
+          {placeholder ? "--" : String(value).padStart(2, "0")}
+        </div>
 
-        <div className="uppercase tracking-[3px] text-xs md:text-sm mt-4 text-muted font-light">
+        <div
+          className="uppercase tracking-[4px] text-xs mt-4 font-light"
+          style={{ color: "rgba(232,223,208,0.6)" }}
+        >
           {label}
         </div>
       </div>
