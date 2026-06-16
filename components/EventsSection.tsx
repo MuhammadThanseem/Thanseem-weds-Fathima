@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { weddingData } from "@/data/wedding";
 import SectionHeader from "@/components/SectionHeader";
+import SectionPetals from "@/components/SectionPetals";
 
 export default function EventsSection() {
   return (
@@ -14,6 +15,7 @@ export default function EventsSection() {
       id="events"
       className="section-light py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
+      <SectionPetals count={12} seed={6} variant="light" />
       <div className="relative z-10 max-w-6xl mx-auto">
         <SectionHeader label="Events" title="Join Our Celebration" />
 

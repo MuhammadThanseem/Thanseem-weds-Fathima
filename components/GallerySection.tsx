@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/SectionHeader";
+import SectionPetals from "@/components/SectionPetals";
 
 const images = [
   { src: "/images/couple1.avif", alt: "Wedding moment 1" },
@@ -21,6 +22,7 @@ export default function GallerySection() {
       id="gallery"
       className="section-dark py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
+      <SectionPetals count={10} seed={5} variant="dark" />
       <div className="relative z-10 max-w-7xl mx-auto">
         <SectionHeader label="Gallery" title="Moments To Cherish" dark />
 

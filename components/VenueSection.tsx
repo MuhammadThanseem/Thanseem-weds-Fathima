@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { weddingData } from "@/data/wedding";
 import SectionHeader from "@/components/SectionHeader";
+import SectionPetals from "@/components/SectionPetals";
 
 export default function VenueSection() {
   const mapsEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.8474845326743!2d75.78412!3d11.2588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6599999999999%3A0x123456789!2sCalicut%2C%20Kerala!5e0!3m2!1sen!2sin!4v1234567890`;
@@ -16,6 +17,7 @@ export default function VenueSection() {
       id="venue"
       className="section-dark py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
+      <SectionPetals count={10} seed={7} variant="dark" />
       <div className="relative z-10 max-w-6xl mx-auto">
         <SectionHeader label="Venue" title="Find Your Way" dark />
 

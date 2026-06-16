@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import SectionHeader from "@/components/SectionHeader";
+import SectionPetals from "@/components/SectionPetals";
 
 export default function RSVPSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -45,9 +46,10 @@ export default function RSVPSection() {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
-        className="section-light py-24 sm:py-32 px-4 sm:px-6 text-center flex items-center justify-center min-h-[60vh] sm:min-h-[70vh]"
+        className="section-light py-24 sm:py-32 px-4 sm:px-6 text-center flex items-center justify-center min-h-[60vh] sm:min-h-[70vh] relative overflow-hidden"
       >
-        <div className="max-w-md">
+        <SectionPetals count={8} seed={8} variant="light" />
+        <div className="relative z-10 max-w-md">
           <motion.div
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
@@ -101,6 +103,7 @@ export default function RSVPSection() {
       id="rsvp"
       className="section-light py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
+      <SectionPetals count={10} seed={9} variant="light" />
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import FloatingPetals from "@/components/FloatingPetals";
+import HeroLogoAnimation from "@/components/HeroLogoAnimation";
+import HeroParticles from "@/components/HeroParticles";
 import MusicPlayer from "@/components/MusicPlayer";
 import CountdownSection from "@/components/CountdownSection";
 import CoupleSection from "@/components/CoupleSection";
@@ -27,7 +28,6 @@ export default function Home() {
 
   return (
     <main className="floral-bg">
-      <FloatingPetals />
       <MusicPlayer />
 
       {/* HERO — Ken Burns animated background */}
@@ -56,6 +56,8 @@ export default function Home() {
         <div className="absolute inset-0 hero-overlay" />
         <div className="absolute inset-0 hero-grain pointer-events-none" />
 
+        <HeroParticles />
+
         {/* Floating accent orbs */}
         <motion.div
           className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full pointer-events-none hidden sm:block"
@@ -79,6 +81,8 @@ export default function Home() {
           style={{ y: heroTextY, opacity: heroOpacity }}
           className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full"
         >
+          <HeroLogoAnimation />
+
           <motion.p
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,7 +106,7 @@ export default function Home() {
             transition={{ duration: 0.9, delay: 0.3 }}
             className="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight gold-gradient px-2"
           >
-            Fathima Barza
+            Muhammed Saneed
           </motion.h1>
 
           <motion.p
@@ -121,7 +125,7 @@ export default function Home() {
             transition={{ duration: 0.9, delay: 0.6 }}
             className="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight gold-gradient px-2"
           >
-            Muhammed Saneed
+            Fathima Barza
           </motion.h1>
 
           <motion.div

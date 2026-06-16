@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Countdown from "react-countdown";
 import { weddingData } from "@/data/wedding";
 import SectionHeader from "@/components/SectionHeader";
+import SectionPetals from "@/components/SectionPetals";
 
 export default function CountdownSection() {
   const [mounted, setMounted] = useState(false);
@@ -21,6 +22,7 @@ export default function CountdownSection() {
       viewport={{ once: true, margin: "-80px" }}
       className="section-dark py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
+      <SectionPetals count={10} seed={3} variant="dark" />
       <motion.div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
         style={{

@@ -1,7 +1,7 @@
 export const weddingData = {
-  bride: "Fathima Barza",
-
   groom: "Muhammed Saneed",
+
+  bride: "Fathima Barza",
 
   weddingDate: "2026-08-08T11:00:00",
 

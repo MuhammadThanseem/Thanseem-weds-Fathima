@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { weddingData } from "@/data/wedding";
 import SectionHeader from "@/components/SectionHeader";
+import SectionPetals from "@/components/SectionPetals";
 
 export default function StorySection() {
   return (
@@ -14,6 +15,7 @@ export default function StorySection() {
       id="story"
       className="section-light py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
+      <SectionPetals count={14} seed={4} variant="light" />
       <div className="relative z-10 max-w-4xl mx-auto">
         <SectionHeader label="Our Journey" title="A Story Written By Allah" />
 

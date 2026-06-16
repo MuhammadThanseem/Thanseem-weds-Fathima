@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/SectionHeader";
+import SectionPetals from "@/components/SectionPetals";
 
 export default function CoupleSection() {
   return (
@@ -14,7 +15,8 @@ export default function CoupleSection() {
       id="couple"
       className="section-light py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16 items-center">
+      <SectionPetals count={12} seed={2} variant="light" />
+      <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16 items-center">
         <motion.div
           initial={{ opacity: 0, x: -60, rotateY: -8 }}
           whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
@@ -64,7 +66,7 @@ export default function CoupleSection() {
             viewport={{ once: true }}
             className="font-heading text-2xl sm:text-3xl md:text-4xl text-foreground -mt-6 sm:-mt-8 mb-2"
           >
-            Fathima Barza
+            Muhammed Saneed
           </motion.h3>
 
           <motion.p
@@ -84,7 +86,7 @@ export default function CoupleSection() {
             viewport={{ once: true }}
             className="font-heading text-2xl sm:text-3xl md:text-4xl text-foreground mb-6 sm:mb-8"
           >
-            Muhammed Saneed
+            Fathima Barza
           </motion.h3>
 
           <motion.p
