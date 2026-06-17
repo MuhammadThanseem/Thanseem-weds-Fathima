@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { FaInstagram, FaFacebook, FaWhatsapp, FaYoutube } from "react-icons/fa";
 
 const socialLinks = [
-  { name: "Instagram", icon: FaInstagram, url: "https://instagram.com" },
-  { name: "Facebook", icon: FaFacebook, url: "https://facebook.com" },
-  { name: "WhatsApp", icon: FaWhatsapp, url: "https://wa.me/" },
-  { name: "YouTube", icon: FaYoutube, url: "https://youtube.com" },
+  { name: "Instagram", icon: FaInstagram, url: "https://www.instagram.com/alhawajbuilders?igsh=MWlkaXNyNzlmNXI3ZQ%3D%3D&utm_source=qr" },
+  { name: "Facebook", icon: FaFacebook, url: "https://www.facebook.com/share/1BLCHhrCdh/?mibextid=wwXIfr" },
+  { name: "WhatsApp", icon: FaWhatsapp, url: "https://wa.me/919744457888" },
+  { name: "YouTube", icon: FaYoutube, url: "https://youtube.com/@alhawajbuilders3258?si=Hrl2q_ZBm76FJeGI" },
 ];
 
 const navLinks = [

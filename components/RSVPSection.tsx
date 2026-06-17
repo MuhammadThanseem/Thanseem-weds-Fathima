@@ -152,148 +152,108 @@ export default function RSVPSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="relative z-10 max-w-2xl mx-auto glass-effect rounded-3xl sm:rounded-[36px] md:rounded-[40px] p-6 sm:p-8 md:p-12 premium-shadow animated-border"
+        className="relative z-10 max-w-3xl mx-auto glass-effect rounded-3xl sm:rounded-[36px] md:rounded-[40px] p-6 sm:p-8 md:p-12 premium-shadow animated-border"
       >
         <SectionHeader label="RSVP" title="Will You Join Us?" />
 
-        <form onSubmit={handleSubmit} className="space-y-5 -mt-4">
-          {[
-            {
-              name: "name",
-              label: "Full Name *",
-              type: "text",
-              placeholder: "Enter your name",
-              required: true,
-            },
-            {
-              name: "email",
-              label: "Email Address *",
-              type: "email",
-              placeholder: "your@email.com",
-              required: true,
-            },
-            {
-              name: "phone",
-              label: "Phone Number *",
-              type: "tel",
-              placeholder: "+91 00000 00000",
-              required: true,
-            },
-          ].map((field, i) => (
-            <motion.div
-              key={field.name}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.05 }}
-              viewport={{ once: true }}
-            >
-              <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">
-                {field.label}
-              </label>
+        <form onSubmit={handleSubmit} className="space-y-4 -mt-4">
+          {/* Row 1 — Name + Phone */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          >
+            <div>
+              <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">Full Name *</label>
               <input
-                type={field.type}
-                name={field.name}
-                value={formData[field.name as keyof typeof formData]}
-                onChange={handleChange}
-                required={field.required}
-                placeholder={field.placeholder}
-                className={inputClass}
-                style={inputStyle}
-                onFocus={(e) => {
-                  e.target.style.borderColor = "var(--beige)";
-                  e.target.style.boxShadow = "0 0 0 3px rgba(203,183,140,0.15)";
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = "rgba(203,183,140,0.25)";
-                  e.target.style.boxShadow = "none";
-                }}
+                type="text" name="name" value={formData.name} onChange={handleChange}
+                required placeholder="Enter your name"
+                className={inputClass} style={inputStyle}
+                onFocus={(e) => { e.target.style.borderColor = "var(--beige)"; e.target.style.boxShadow = "0 0 0 3px rgba(203,183,140,0.15)"; }}
+                onBlur={(e) => { e.target.style.borderColor = "rgba(203,183,140,0.25)"; e.target.style.boxShadow = "none"; }}
               />
-            </motion.div>
-          ))}
+            </div>
+            <div>
+              <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">Phone Number *</label>
+              <input
+                type="tel" name="phone" value={formData.phone} onChange={handleChange}
+                required placeholder="+91 00000 00000"
+                className={inputClass} style={inputStyle}
+                onFocus={(e) => { e.target.style.borderColor = "var(--beige)"; e.target.style.boxShadow = "0 0 0 3px rgba(203,183,140,0.15)"; }}
+                onBlur={(e) => { e.target.style.borderColor = "rgba(203,183,140,0.25)"; e.target.style.boxShadow = "none"; }}
+              />
+            </div>
+          </motion.div>
 
+          {/* Row 2 — Email + Guests */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          >
+            <div>
+              <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">Email Address *</label>
+              <input
+                type="email" name="email" value={formData.email} onChange={handleChange}
+                required placeholder="your@email.com"
+                className={inputClass} style={inputStyle}
+                onFocus={(e) => { e.target.style.borderColor = "var(--beige)"; e.target.style.boxShadow = "0 0 0 3px rgba(203,183,140,0.15)"; }}
+                onBlur={(e) => { e.target.style.borderColor = "rgba(203,183,140,0.25)"; e.target.style.boxShadow = "none"; }}
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">Number of Guests</label>
+              <select name="guests" value={formData.guests} onChange={handleChange} className={inputClass} style={inputStyle}>
+                {["1", "2", "3", "4", "5", "6+"].map((n) => (
+                  <option key={n} value={n}>{n === "6+" ? "6 or More" : `${n} Guest${n !== "1" ? "s" : ""}`}</option>
+                ))}
+              </select>
+            </div>
+          </motion.div>
+
+          {/* Row 3 — Response + Dietary */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          >
+            <div>
+              <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">Your Response *</label>
+              <select name="response" value={formData.response} onChange={handleChange} required className={inputClass} style={inputStyle}>
+                <option value="">Select your response</option>
+                <option value="Accept">Joyfully Accept</option>
+                <option value="Decline">Regretfully Decline</option>
+                <option value="Maybe">Maybe</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">Dietary Preferences</label>
+              <input
+                type="text" name="dietary" value={formData.dietary} onChange={handleChange}
+                placeholder="Vegetarian, Halal, etc."
+                className={inputClass} style={inputStyle}
+                onFocus={(e) => { e.target.style.borderColor = "var(--beige)"; e.target.style.boxShadow = "0 0 0 3px rgba(203,183,140,0.15)"; }}
+                onBlur={(e) => { e.target.style.borderColor = "rgba(203,183,140,0.25)"; e.target.style.boxShadow = "none"; }}
+              />
+            </div>
+          </motion.div>
+
+          {/* Row 4 — Message full width */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
             viewport={{ once: true }}
           >
-            <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">
-              Number of Guests
-            </label>
-            <select
-              name="guests"
-              value={formData.guests}
-              onChange={handleChange}
-              className={inputClass}
-              style={inputStyle}
-            >
-              {["1", "2", "3", "4", "5", "6+"].map((n) => (
-                <option key={n} value={n}>
-                  {n === "6+"
-                    ? "6 or More"
-                    : `${n} Guest${n !== "1" ? "s" : ""}`}
-                </option>
-              ))}
-            </select>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">
-              Your Response *
-            </label>
-            <select
-              name="response"
-              value={formData.response}
-              onChange={handleChange}
-              required
-              className={inputClass}
-              style={inputStyle}
-            >
-              <option value="">Select your response</option>
-              <option value="Accept">Joyfully Accept</option>
-              <option value="Decline">Regretfully Decline</option>
-              <option value="Maybe">Maybe</option>
-            </select>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.35 }}
-            viewport={{ once: true }}
-          >
-            <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">
-              Dietary Preferences
-            </label>
-            <input
-              type="text"
-              name="dietary"
-              value={formData.dietary}
-              onChange={handleChange}
-              placeholder="Vegetarian, Vegan, Halal, etc."
-              className={inputClass}
-              style={inputStyle}
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">
-              Special Message
-            </label>
+            <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">Special Message</label>
             <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
+              name="message" value={formData.message} onChange={handleChange}
               placeholder="Share your warm wishes..."
               rows={3}
               className={`${inputClass} resize-none`}

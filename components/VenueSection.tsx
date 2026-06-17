@@ -6,7 +6,7 @@ import SectionHeader from "@/components/SectionHeader";
 import SectionPetals from "@/components/SectionPetals";
 
 export default function VenueSection() {
-  const mapsEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.8474845326743!2d75.78412!3d11.2588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6599999999999%3A0x123456789!2sCalicut%2C%20Kerala!5e0!3m2!1sen!2sin!4v1234567890`;
+  const { nikah } = weddingData;
 
   return (
     <motion.section
@@ -14,104 +14,119 @@ export default function VenueSection() {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true, margin: "-80px" }}
-      id="venue"
-      className="section-dark py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      id="events"
+      className="section-dark py-14 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      <SectionPetals count={10} seed={7} variant="dark" />
+      <SectionPetals count={8} seed={7} variant="dark" />
       <div className="relative z-10 max-w-6xl mx-auto">
-        <SectionHeader label="Venue" title="Find Your Way" dark />
+        <SectionHeader label="Events & Venue" title="Join Our Celebration" dark />
 
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-16">
-          {[weddingData.nikah, weddingData.reception].map((event, index) => (
-            <motion.div
-              key={event.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -4 }}
-              className="invitation-card hover-lift p-6 sm:p-8 md:p-10 text-center md:text-left"
-            >
-              <h3
-                className="font-heading text-xl sm:text-2xl md:text-3xl"
-                style={{ color: "var(--beige-light)" }}
-              >
-                {event.title}
-              </h3>
-
-              <div className="decorative-line h-px my-5 sm:my-6 w-12 mx-auto md:mx-0" />
-
-              <p className="font-light leading-relaxed" style={{ color: "var(--beige-light)" }}>
-                {event.venue}
-              </p>
-
-              <p className="mt-3 text-sm font-light" style={{ color: "rgba(232,223,208,0.6)" }}>
-                {event.address}
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3 mt-8">
-                <motion.a
-                  href={event.mapLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="flex-1 text-center px-6 py-4 rounded-full font-light btn-modern transition-all"
-                  style={{
-                    background: "linear-gradient(135deg, var(--beige), var(--beige-warm))",
-                    color: "var(--black)",
-                  }}
+        {/* Single combined card: details left, map right */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="invitation-card overflow-hidden rounded-2xl premium-shadow animated-border"
+        >
+          <div className="grid md:grid-cols-2">
+            {/* Left — event details */}
+            <div className="p-8 sm:p-10 md:p-12 flex flex-col justify-between">
+              <div>
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.1 }}
+                  viewport={{ once: true }}
+                  className="inline-block text-xs uppercase tracking-[4px] font-light mb-4"
+                  style={{ color: "var(--beige-warm)" }}
                 >
-                  Get Directions
-                </motion.a>
-                <div
-                  className="px-6 py-4 rounded-full text-center font-light text-sm"
-                  style={{
-                    background: "rgba(203,183,140,0.1)",
-                    color: "var(--beige)",
-                    border: "1px solid rgba(203,183,140,0.2)",
-                  }}
+                  Nikah
+                </motion.span>
+
+                <h3
+                  className="font-heading text-3xl sm:text-4xl md:text-5xl leading-tight"
+                  style={{ color: "var(--beige-light)" }}
                 >
-                  {event.time}
+                  {nikah.title}
+                </h3>
+
+                <div className="decorative-line shimmer-line h-px my-6 w-14" />
+
+                <div className="space-y-4">
+                  <Row label="Date" value={nikah.date} delay={0.2} />
+                  <Row label="Hijri" value={nikah.hijri} delay={0.25} />
+                  <Row label="Time" value={nikah.time} delay={0.3} />
+                  <Row label="Venue" value={nikah.venue} delay={0.35} />
+                  <Row label="Address" value={nikah.address} delay={0.4} />
                 </div>
               </div>
+
+              <motion.a
+                href={nikah.mapLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.45 }}
+                viewport={{ once: true }}
+                className="mt-10 inline-block text-center px-8 py-4 rounded-full font-light btn-modern text-sm tracking-widest uppercase transition-all"
+                style={{
+                  background: "linear-gradient(135deg, var(--beige), var(--beige-warm))",
+                  color: "var(--black)",
+                }}
+              >
+                Get Directions
+              </motion.a>
+            </div>
+
+            {/* Right — map */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="relative min-h-[300px] md:min-h-0"
+            >
+              <iframe
+                src={nikah.mapEmbed}
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: "300px" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Wedding Venue Location"
+                className="w-full h-full grayscale-[20%] contrast-[1.1]"
+              />
             </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="max-w-5xl mx-auto"
-        >
-          <div className="rounded-2xl overflow-hidden premium-shadow animated-border">
-            <iframe
-              src={mapsEmbedUrl}
-              width="100%"
-              height="500"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Wedding Venue Location"
-              className="w-full h-80 md:h-[480px] grayscale-[30%] contrast-[1.1]"
-            />
           </div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="mt-8 text-center font-light text-sm tracking-wide"
-            style={{ color: "rgba(203,183,140,0.6)" }}
-          >
-            Calicut, Kerala &nbsp;·&nbsp; 08 August 2026
-          </motion.p>
         </motion.div>
       </div>
     </motion.section>
+  );
+}
+
+function Row({ label, value, delay }: { label: string; value: string; delay: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -12 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.45, delay }}
+      viewport={{ once: true }}
+      className="flex gap-3 items-baseline"
+    >
+      <span
+        className="font-light uppercase tracking-[3px] text-xs flex-shrink-0 w-16"
+        style={{ color: "rgba(203,183,140,0.55)" }}
+      >
+        {label}
+      </span>
+      <span className="font-light text-sm" style={{ color: "var(--beige-light)" }}>
+        {value}
+      </span>
+    </motion.div>
   );
 }

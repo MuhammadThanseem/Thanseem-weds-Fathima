@@ -8,19 +8,12 @@ export const weddingData = {
   nikah: {
     title: "Nikah Ceremony",
     date: "08 August 2026",
+    hijri: "25th Safar, 1448",
     time: "11:00 AM",
-    venue: "Noor Mahal Convention Centre",
-    address: "Calicut, Kerala",
-    mapLink: "https://maps.google.com",
-  },
-
-  reception: {
-    title: "Wedding Reception",
-    date: "08 August 2026",
-    time: "07:00 PM",
-    venue: "Blossom Grand Auditorium",
-    address: "Calicut, Kerala",
-    mapLink: "https://maps.google.com",
+    venue: "Sree Gokulam Convention Centre",
+    address: "Balussery, Kerala 673612",
+    mapLink: "https://maps.app.goo.gl/4KbZLPE6TvmjcwvW6?g_st=iw",
+    mapEmbed: "https://maps.google.com/maps?q=Sree+Gokulam+Convention+Centre+Balussery+Kerala+673612&output=embed",
   },
 
   story: [

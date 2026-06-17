@@ -35,6 +35,34 @@ export default function CountdownSection() {
       <div className="relative z-10 max-w-5xl mx-auto">
         <SectionHeader label="Countdown" title="Until Our Big Day" dark />
 
+        <motion.div
+          initial={{ opacity: 0, y: -16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="text-center -mt-4 mb-10"
+        >
+          <motion.p
+            animate={{
+              textShadow: [
+                "0 0 0px rgba(203,183,140,0)",
+                "0 0 22px rgba(203,183,140,0.6)",
+                "0 0 0px rgba(203,183,140,0)",
+              ],
+            }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            className="font-heading gold-gradient"
+            style={{
+              fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)",
+              direction: "rtl",
+              letterSpacing: "0.06em",
+              lineHeight: 1.6,
+            }}
+          >
+            إِنْ شَاءَ اللّٰهُ
+          </motion.p>
+        </motion.div>
+
         {mounted ? (
           <Countdown
             date={new Date(weddingData.weddingDate)}
