@@ -22,6 +22,14 @@ html {
   scroll-behavior: smooth;
 }
 
+button,
+a,
+[role="button"],
+label[for],
+select {
+  cursor: pointer;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

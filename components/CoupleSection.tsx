@@ -33,11 +33,13 @@ export default function CoupleSection() {
 
           <div className="relative rounded-[40px] overflow-hidden premium-shadow animated-border">
             <Image
-              src="/images/couple1.avif"
+              src="/images/couples.jpg"
               alt="Couple"
               width={600}
               height={700}
               className="w-full h-auto object-cover"
+              loading="eager"
+              priority
             />
             <motion.div
               className="absolute inset-0"

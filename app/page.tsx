@@ -11,6 +11,7 @@ import StorySection from "@/components/StorySection";
 import VenueSection from "@/components/VenueSection";
 import RSVPSection from "@/components/RSVPSection";
 import FooterSection from "@/components/FooterSection";
+import HeroNotifyModal from "@/components/HeroNotifyModal";
 
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
@@ -24,6 +25,7 @@ export default function Home() {
 
   return (
     <main className="floral-bg">
+      <HeroNotifyModal />
       <MusicPlayer />
 
       {/* HERO */}
