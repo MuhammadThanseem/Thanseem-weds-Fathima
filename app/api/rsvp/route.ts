@@ -23,7 +23,9 @@ export async function POST(req: Request) {
 
     console.log("Google Response:", text);
 
-    return NextResponse.json(JSON.parse(text));
+    const data = JSON.parse(text);
+
+    return NextResponse.json(data, { status: data.success ? 200 : 400 });
 
   } catch (error) {
 

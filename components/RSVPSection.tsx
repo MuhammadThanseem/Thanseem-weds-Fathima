@@ -26,7 +26,6 @@ export default function RSVPSection() {
     phone: "",
     guests: "1",
     response: "",
-    dietary: "",
     message: "",
     instagramFollow: "" as FollowStatus,
   };
@@ -347,7 +346,7 @@ export default function RSVPSection() {
             </div>
           </motion.div>
 
-          {/* Row 3 — Response + Dietary */}
+          {/* Row 3 — Response + Message */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
