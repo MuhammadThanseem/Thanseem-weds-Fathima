@@ -7,7 +7,6 @@ import HeroParticles from "@/components/HeroParticles";
 import MusicPlayer from "@/components/MusicPlayer";
 import CountdownSection from "@/components/CountdownSection";
 import CoupleSection from "@/components/CoupleSection";
-import StorySection from "@/components/StorySection";
 import VenueSection from "@/components/VenueSection";
 import RSVPSection from "@/components/RSVPSection";
 import FooterSection from "@/components/FooterSection";
@@ -194,7 +193,6 @@ export default function Home() {
 
       <CoupleSection />
       <CountdownSection />
-      <StorySection />
       <VenueSection />
       <RSVPSection />
       <FooterSection />

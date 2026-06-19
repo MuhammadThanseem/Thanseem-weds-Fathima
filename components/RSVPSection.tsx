@@ -22,9 +22,7 @@ export default function RSVPSection() {
 
   const initialFormData = {
     name: "",
-    email: "",
     phone: "",
-    guests: "1",
     response: "",
     message: "",
     instagramFollow: "" as FollowStatus,
@@ -256,7 +254,7 @@ export default function RSVPSection() {
         viewport={{ once: true }}
         className="relative z-10 max-w-3xl mx-auto glass-effect rounded-3xl sm:rounded-[36px] md:rounded-[40px] p-6 sm:p-8 md:p-12 premium-shadow animated-border"
       >
-        <SectionHeader label="RSVP" title="Will You Join Us?" />
+        <SectionHeader label="RSVP" title="Follow & Win Contest" />
 
         <form onSubmit={handleSubmit} className="space-y-4 -mt-4">
           {/* Row 1 — Name + Phone */}
@@ -301,7 +299,7 @@ export default function RSVPSection() {
             </div>
           </motion.div>
 
-          {/* Row 2 — Email + Guests */}
+          {/* Row 2 — Email  */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -311,52 +309,7 @@ export default function RSVPSection() {
           >
             <div>
               <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">
-                Email Address
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="your@email.com"
-                className={inputClass}
-                style={inputStyle}
-                {...focusHandlers}
-              />
-            </div>
-            <div>
-              <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">
-                Number of Guests
-              </label>
-              <select
-                name="guests"
-                value={formData.guests}
-                onChange={handleChange}
-                className={inputClass}
-                style={inputStyle}
-              >
-                {["1", "2", "3", "4", "5", "6+"].map((n) => (
-                  <option key={n} value={n}>
-                    {n === "6+"
-                      ? "6 or More"
-                      : `${n} Guest${n !== "1" ? "s" : ""}`}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </motion.div>
-
-          {/* Row 3 — Response + Message */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-          >
-            <div>
-              <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">
-                Your Response *
+                Will you be there? *
               </label>
               <select
                 name="response"
@@ -372,7 +325,7 @@ export default function RSVPSection() {
                 <option value="Maybe">Maybe</option>
               </select>
             </div>
-            <div>
+              <div>
               <label className="block text-xs font-light text-muted mb-2 uppercase tracking-wider">
                 Special Message
               </label>
@@ -443,7 +396,7 @@ export default function RSVPSection() {
                 className="text-xs font-light leading-relaxed mb-4"
                 style={{ color: "var(--muted)" }}
               >
-                Followers of {INSTAGRAM_HANDLE} receive a{" "}
+                Selected 4 followers of {INSTAGRAM_HANDLE} receive a{" "}
                 <span style={{ color: "var(--beige-warm)" }}>
                   special surprise gift
                 </span>{" "}
