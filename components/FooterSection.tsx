@@ -84,7 +84,7 @@ export default function FooterSection() {
               className="font-heading text-2xl md:text-3xl tracking-wide"
               style={{ color: "var(--beige-light)" }}
             >
-              Muhammed Saneed
+              Er. Muhammed Thanseem C
             </p>
             <p
               className="text-xl my-3 font-light"
@@ -96,7 +96,7 @@ export default function FooterSection() {
               className="font-heading text-2xl md:text-3xl tracking-wide"
               style={{ color: "var(--beige-light)" }}
             >
-              Fathima Barza
+              Dr. Fathima
             </p>
 
             <motion.div
@@ -111,7 +111,7 @@ export default function FooterSection() {
                 background: "rgba(203,183,140,0.06)",
               }}
             >
-              08 · August · 2026
+              19 · December · 2026
             </motion.div>
           </motion.div>
 
@@ -192,7 +192,7 @@ export default function FooterSection() {
             className="text-xs font-light tracking-wide"
             style={{ color: "rgba(232,223,208,0.35)" }}
           >
-            © 2026 Saneed & Fathima. All blessings to our union.
+            © 2026 Thanseem & Fathima. All blessings to our union.
           </p>
 
           <motion.p

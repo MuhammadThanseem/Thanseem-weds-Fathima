@@ -31,7 +31,7 @@ export default function Home() {
       <section
         ref={heroRef}
         className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden"
-        style={{ background: "#3a3520" }}
+        style={{ background: "#241f12" }}
       >
         {/* ── Full-screen background — curtain reveal top → bottom ── */}
         <motion.div
@@ -41,12 +41,13 @@ export default function Home() {
           className="absolute inset-0"
         >
           <Image
-            src="/images/hero1.png"
-            alt="Al Hawaj Builders"
+            src="/images/hero.svg"
+            alt="Er. Muhammed Thanseem C & Dr. Fathima"
             fill
             className="object-cover"
-            style={{ objectPosition: "50% 40%" }}
+            style={{ objectPosition: "50% 50%" }}
             priority
+            unoptimized
             sizes="100vw"
           />
         </motion.div>
@@ -132,7 +133,7 @@ export default function Home() {
               transition={{ duration: 0.9, delay: 2.2 }}
               className="font-heading text-4xl sm:text-5xl md:text-6xl leading-tight gold-gradient"
             >
-              Muhammed Saneed
+              Er. Muhammed Thanseem C
             </motion.h1>
 
             <motion.p
@@ -149,7 +150,7 @@ export default function Home() {
               transition={{ duration: 0.9, delay: 2.45 }}
               className="font-heading text-4xl sm:text-5xl md:text-6xl leading-tight gold-gradient"
             >
-              Fathima Barza
+              Dr. Fathima
             </motion.h1>
 
             <motion.div
@@ -172,7 +173,7 @@ export default function Home() {
                 className="font-heading text-2xl sm:text-3xl md:text-4xl tracking-wide"
                 style={{ color: "var(--beige-light)" }}
               >
-                08 August 2026
+                19 December 2026
               </h2>
             </motion.div>
           </motion.div>

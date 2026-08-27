@@ -1,19 +1,20 @@
 export const weddingData = {
-  groom: "Muhammed Saneed",
+  groom: "Er. Muhammed Thanseem C",
 
-  bride: "Fathima Barza",
+  bride: "Dr. Fathima",
 
-  weddingDate: "2026-08-08T11:00:00",
+  weddingDate: "2026-12-19T16:00:00",
 
   nikah: {
-    title: "Nikah Ceremony",
-    date: "08 August 2026",
-    hijri: "25th Safar, 1448",
-    time: "11:00 AM",
-    venue: "Sree Gokulam Convention Centre",
-    address: "Balussery, Kerala 673612",
-    mapLink: "https://maps.app.goo.gl/4KbZLPE6TvmjcwvW6?g_st=iw",
-    mapEmbed: "https://maps.google.com/maps?q=Sree+Gokulam+Convention+Centre+Balussery+Kerala+673612&output=embed",
+    title: "Nikkah & Reception",
+    date: "19 December 2026",
+    hijri: "10th Rajab, 1448",
+    time: "4:00 PM",
+    reception: "5:00 PM onwards",
+    venue: "Baithul Huda (Chalil)",
+    address: "Malarakkal, Villiappally, Vatakara",
+    mapLink: "https://www.google.com/maps/search/?api=1&query=Baithul+Huda+Chalil+Malarakkal+Villiappally+Vatakara",
+    mapEmbed: "https://maps.google.com/maps?q=Baithul%20Huda%20Chalil%20Malarakkal%20Villiappally%20Vatakara&output=embed",
   },
 
   story: [

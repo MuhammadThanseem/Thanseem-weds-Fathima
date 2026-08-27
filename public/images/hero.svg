@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Muslim wedding invitation ornament">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#241f12"/>
+      <stop offset="0.45" stop-color="#332e1b"/>
+      <stop offset="1" stop-color="#14110a"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#efe6d4"/>
+      <stop offset="0.5" stop-color="#cbb78e"/>
+      <stop offset="1" stop-color="#8f7a4d"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="0.5" cy="0.44" r="0.55">
+      <stop offset="0" stop-color="#cbb78e" stop-opacity="0.28"/>
+      <stop offset="0.55" stop-color="#cbb78e" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#cbb78e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="archGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#1a1710" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#1a1710" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lampGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f6dca2" stop-opacity="0.6"/>
+      <stop offset="0.6" stop-color="#e7b35f" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#e7b35f" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="stars" width="150" height="150" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+      <g fill="none" stroke="#cbb78e" stroke-width="1">
+        <path d="M75 28 L122 75 L75 122 L28 75 Z"/>
+        <path d="M45 45 L105 45 L105 105 L45 105 Z"/>
+      </g>
+    </pattern>
+
+    <!-- reusable corner arabesque (fits ~0..250 box) -->
+    <g id="corner" fill="none" stroke="url(#gold)" stroke-width="2.2" stroke-linecap="round">
+      <path d="M0 150 C 0 66 66 0 150 0"/>
+      <path d="M0 150 C 46 150 78 128 86 82 C 92 46 120 30 150 34"/>
+      <path d="M30 60 C 54 44 78 52 80 78 C 82 100 64 112 48 104 C 36 98 36 80 50 76"/>
+      <path d="M120 20 C 118 44 128 66 152 70"/>
+      <circle cx="150" cy="0" r="0"/>
+      <path d="M6 6 L46 6 M6 6 L6 46" stroke-width="3"/>
+      <circle cx="150" cy="150" r="5" fill="url(#gold)" stroke="none"/>
+    </g>
+
+    <!-- hanging lantern (fanoos), origin at suspension point -->
+    <g id="lantern" fill="none" stroke="url(#gold)" stroke-width="2" stroke-linejoin="round">
+      <line x1="0" y1="0" x2="0" y2="120"/>
+      <path d="M-24 130 Q 0 112 24 130 L 18 150 L -18 150 Z"/>
+      <path d="M-30 156 L 30 156 L 24 300 Q 0 330 -24 300 Z"/>
+      <path d="M-30 156 L 30 156 M -26 196 L 26 196 M -22 244 L 22 244"/>
+      <path d="M-6 300 Q 0 320 6 300 M 0 318 L 0 336"/>
+      <ellipse cx="0" cy="232" rx="34" ry="60" fill="url(#lampGlow)" stroke="none"/>
+    </g>
+
+    <!-- small sparkle -->
+    <g id="spark" fill="url(#gold)">
+      <path d="M0 -9 L2 -2 L9 0 L2 2 L0 9 L-2 2 L-9 0 L-2 -2 Z"/>
+    </g>
+
+    <mask id="crescentMask">
+      <circle cx="1300" cy="150" r="72" fill="#fff"/>
+      <circle cx="1334" cy="140" r="63" fill="#000"/>
+    </mask>
+
+    <!-- minaret silhouette, base at y=0 pointing up -->
+    <g id="minaret" fill="#231f10">
+      <rect x="-22" y="-240" width="44" height="240"/>
+      <rect x="-30" y="-250" width="60" height="14"/>
+      <path d="M-26 -250 Q -26 -300 0 -318 Q 26 -300 26 -250 Z"/>
+      <path d="M0 -318 L0 -344 M-7 -334 Q 0 -352 7 -334"/>
+    </g>
+    <!-- side dome silhouette -->
+    <g id="sidedome" fill="#231f10">
+      <rect x="-52" y="-92" width="104" height="92"/>
+      <path d="M-52 -92 Q -52 -150 -26 -170 Q -44 -190 -26 -206 Q -10 -216 0 -218
+               Q 10 -216 26 -206 Q 44 -190 26 -170 Q 52 -150 52 -92 Z"/>
+      <path d="M0 -218 L0 -238 M-6 -230 Q 0 -246 6 -230"/>
+    </g>
+  </defs>
+
+  <!-- base -->
+  <rect width="1920" height="1200" fill="url(#bg)"/>
+  <rect width="1920" height="1200" fill="url(#stars)" opacity="0.05"/>
+  <rect width="1920" height="1200" fill="url(#centerGlow)"/>
+
+  <!-- night sky: faint crescent + scattered stars -->
+  <g opacity="0.55">
+    <circle cx="1300" cy="150" r="72" fill="url(#gold)" opacity="0.5" mask="url(#crescentMask)"/>
+    <use href="#spark" transform="translate(1392,168) scale(0.7)"/>
+    <g fill="#e8dfd0">
+      <circle cx="360" cy="180" r="2.4"/><circle cx="520" cy="120" r="1.8"/>
+      <circle cx="240" cy="300" r="1.6"/><circle cx="1660" cy="360" r="2"/>
+      <circle cx="1740" cy="150" r="1.6"/><circle cx="1280" cy="140" r="1.8"/>
+      <circle cx="640" cy="240" r="1.5"/><circle cx="1560" cy="470" r="1.6"/>
+    </g>
+  </g>
+
+  <!-- decorative border frame -->
+  <g fill="none" stroke="url(#gold)">
+    <rect x="46" y="46" width="1828" height="1108" stroke-width="2.5"/>
+    <rect x="60" y="60" width="1800" height="1080" stroke-width="1" opacity="0.7"/>
+    <g fill="url(#gold)" stroke="none" opacity="0.9">
+      <path d="M960 40 l12 14 -12 14 -12 -14 Z"/>
+      <path d="M960 1146 l12 14 -12 14 -12 -14 Z"/>
+      <path d="M40 600 l14 12 -14 12 -14 -12 Z"/>
+      <path d="M1880 600 l14 12 -14 12 -14 -12 Z"/>
+    </g>
+  </g>
+  <use href="#corner" x="70" y="70"/>
+  <use href="#corner" transform="translate(1850,70) scale(-1,1)"/>
+  <use href="#corner" transform="translate(70,1130) scale(1,-1)"/>
+  <use href="#corner" transform="translate(1850,1130) scale(-1,-1)"/>
+
+  <!-- central pointed arch (mihrab) -->
+  <g>
+    <path d="M655 1052 L655 470 C655 300 782 150 960 150 C1138 150 1265 300 1265 470 L1265 1052 Z"
+          fill="url(#archGlow)"/>
+    <path d="M655 1052 L655 470 C655 300 782 150 960 150 C1138 150 1265 300 1265 470 L1265 1052"
+          fill="none" stroke="url(#gold)" stroke-width="3.5"/>
+    <path d="M679 1052 L679 478 C679 316 799 174 960 174 C1121 174 1241 316 1241 478 L1241 1052"
+          fill="none" stroke="url(#gold)" stroke-width="1.4" opacity="0.75"/>
+    <!-- keystone medallion -->
+    <g transform="translate(960,120)" fill="none" stroke="url(#gold)" stroke-width="2">
+      <path d="M0 -26 L7 -7 L26 0 L7 7 L0 26 L-7 7 L-26 0 L-7 -7 Z"/>
+      <circle cx="0" cy="0" r="6" fill="url(#gold)" stroke="none"/>
+    </g>
+    <!-- springline rosettes -->
+    <g fill="url(#gold)">
+      <circle cx="655" cy="470" r="6"/><circle cx="1265" cy="470" r="6"/>
+    </g>
+  </g>
+
+  <!-- central mosque lamp hanging from apex -->
+  <g transform="translate(960,174)" fill="none" stroke="url(#gold)" stroke-width="2" stroke-linejoin="round">
+    <line x1="-14" y1="0" x2="-14" y2="34"/>
+    <line x1="0" y1="0" x2="0" y2="30"/>
+    <line x1="14" y1="0" x2="14" y2="34"/>
+    <path d="M-40 34 Q 0 14 40 34 L 30 60 Q 0 46 -30 60 Z"/>
+    <rect x="-18" y="60" width="36" height="26"/>
+    <path d="M-18 86 C -78 108 -84 196 0 214 C 84 196 78 108 18 86 Z"/>
+    <path d="M0 214 L0 236 M -8 224 Q 0 244 8 224"/>
+    <ellipse cx="0" cy="150" rx="72" ry="86" fill="url(#lampGlow)" stroke="none"/>
+    <path d="M-52 150 Q 0 118 52 150 M -50 174 Q 0 146 50 174" opacity="0.7"/>
+  </g>
+
+  <!-- flanking lanterns -->
+  <use href="#lantern" x="360" y="80"/>
+  <use href="#lantern" x="1560" y="80"/>
+  <use href="#lantern" x="230" y="150" transform="scale(0.8)" opacity="0.6"/>
+  <use href="#lantern" transform="translate(1690,120) scale(0.8)" opacity="0.6"/>
+
+  <!-- bottom mosque skyline silhouette -->
+  <g>
+    <rect x="0" y="1120" width="1920" height="80" fill="#231f10"/>
+    <use href="#sidedome" transform="translate(360,1120) scale(0.85)"/>
+    <use href="#sidedome" transform="translate(1560,1120) scale(0.85)"/>
+    <use href="#minaret" transform="translate(690,1120)"/>
+    <use href="#minaret" transform="translate(1230,1120)"/>
+    <!-- central dome -->
+    <path d="M745 1120
+             C 745 1012 762 952 816 906
+             C 782 872 794 838 830 818
+             C 856 804 900 795 960 793
+             C 1020 795 1064 804 1090 818
+             C 1126 838 1138 872 1104 906
+             C 1158 952 1175 1012 1175 1120 Z" fill="#231f10"/>
+    <line x1="960" y1="800" x2="960" y2="748" stroke="#231f10" stroke-width="4"/>
+    <circle cx="960" cy="744" r="6" fill="#231f10"/>
+    <!-- gold rim highlight -->
+    <path d="M747 1030 C 750 918 806 812 960 800 C 1114 812 1170 918 1173 1030"
+          fill="none" stroke="url(#gold)" stroke-width="2" opacity="0.5"/>
+    <g fill="url(#gold)" opacity="0.75">
+      <circle cx="960" cy="723" r="3.5"/><circle cx="690" cy="874" r="3"/><circle cx="1230" cy="874" r="3"/>
+    </g>
+  </g>
+
+  <!-- sparkles -->
+  <g opacity="0.8">
+    <use href="#spark" transform="translate(470,560) scale(0.9)"/>
+    <use href="#spark" transform="translate(1450,520) scale(0.8)"/>
+    <use href="#spark" transform="translate(560,820) scale(0.7)"/>
+    <use href="#spark" transform="translate(1370,860) scale(0.9)"/>
+    <use href="#spark" transform="translate(960,470) scale(0.6)"/>
+    <use href="#spark" transform="translate(300,660) scale(0.6)"/>
+    <use href="#spark" transform="translate(1630,700) scale(0.6)"/>
+  </g>
+</svg>

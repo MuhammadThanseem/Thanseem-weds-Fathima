@@ -41,7 +41,7 @@ export default function VenueSection() {
                   className="inline-block text-xs uppercase tracking-[4px] font-light mb-4"
                   style={{ color: "var(--beige-warm)" }}
                 >
-                  Nikah
+                  Nikkah &amp; Reception
                 </motion.span>
 
                 <h3
@@ -56,9 +56,10 @@ export default function VenueSection() {
                 <div className="space-y-4">
                   <Row label="Date" value={nikah.date} delay={0.2} />
                   <Row label="Hijri" value={nikah.hijri} delay={0.25} />
-                  <Row label="Time" value={nikah.time} delay={0.3} />
-                  <Row label="Venue" value={nikah.venue} delay={0.35} />
-                  <Row label="Address" value={nikah.address} delay={0.4} />
+                  <Row label="Nikkah" value={nikah.time} delay={0.3} />
+                  <Row label="Reception" value={nikah.reception} delay={0.35} />
+                  <Row label="Venue" value={nikah.venue} delay={0.4} />
+                  <Row label="Address" value={nikah.address} delay={0.45} />
                 </div>
               </div>
 
