@@ -1,21 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaInstagram, FaFacebook, FaWhatsapp, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp, FaMapMarkerAlt } from "react-icons/fa";
+import { weddingData } from "@/data/wedding";
 
 const socialLinks = [
-  { name: "Instagram", icon: FaInstagram, url: "https://www.instagram.com/alhawajbuilders?igsh=MWlkaXNyNzlmNXI3ZQ%3D%3D&utm_source=qr" },
-  { name: "Facebook", icon: FaFacebook, url: "https://www.facebook.com/share/1BLCHhrCdh/?mibextid=wwXIfr" },
-  { name: "WhatsApp", icon: FaWhatsapp, url: "https://wa.me/919744457888" },
-  { name: "YouTube", icon: FaYoutube, url: "https://youtube.com/@alhawajbuilders3258?si=Hrl2q_ZBm76FJeGI" },
+  { name: "Instagram", icon: FaInstagram, url: weddingData.contact.instagram },
+  {
+    name: "WhatsApp",
+    icon: FaWhatsapp,
+    url: `https://wa.me/${weddingData.contact.whatsapp}`,
+  },
+  { name: "Location", icon: FaMapMarkerAlt, url: weddingData.nikah.mapLink },
 ];
 
 const navLinks = [
   { label: "Couple", href: "#couple" },
   { label: "Story", href: "#story" },
-  { label: "Gallery", href: "#gallery" },
+  { label: "Blessing", href: "#blessing" },
   { label: "Events", href: "#events" },
-  { label: "Venue", href: "#venue" },
   { label: "RSVP", href: "#rsvp" },
 ];
 
@@ -81,19 +84,19 @@ export default function FooterSection() {
             <div className="decorative-line shimmer-line h-px w-16 mx-auto mb-8 md:hidden" />
 
             <p
-              className="font-heading text-2xl md:text-3xl tracking-wide"
+              className="font-heading text-lg sm:text-xl md:text-2xl tracking-normal whitespace-nowrap"
               style={{ color: "var(--beige-light)" }}
             >
               Er. Muhammed Thanseem C
             </p>
             <p
-              className="text-xl my-3 font-light"
+              className="text-lg my-2 font-light"
               style={{ color: "var(--beige)" }}
             >
               &
             </p>
             <p
-              className="font-heading text-2xl md:text-3xl tracking-wide"
+              className="font-heading text-lg sm:text-xl md:text-2xl tracking-normal whitespace-nowrap"
               style={{ color: "var(--beige-light)" }}
             >
               Dr. Fathima
@@ -195,14 +198,21 @@ export default function FooterSection() {
             © 2026 Thanseem & Fathima. All blessings to our union.
           </p>
 
-          <motion.p
-            animate={{ opacity: [0.4, 0.8, 0.4] }}
-            transition={{ duration: 3, repeat: Infinity }}
-            className="text-xs font-light tracking-[4px] uppercase"
+          <p
+            className="text-xs font-light tracking-[3px] uppercase"
             style={{ color: "rgba(203,183,140,0.4)" }}
           >
-            Made with love
-          </motion.p>
+            Crafted by{" "}
+            <a
+              href="https://www.penaqure.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors duration-300 hover:text-[color:var(--beige-light)]"
+              style={{ color: "rgba(203,183,140,0.7)" }}
+            >
+              Penaqure
+            </a>
+          </p>
         </motion.div>
       </div>
 

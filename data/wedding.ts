@@ -17,6 +17,21 @@ export const weddingData = {
     mapEmbed: "https://maps.google.com/maps?q=Baithul%20Huda%20Chalil%20Malarakkal%20Villiappally%20Vatakara&output=embed",
   },
 
+  contact: {
+    // WhatsApp number in international format — country code, digits only (no +, spaces or dashes)
+    whatsapp: "918547864929",
+    // Full URL to the couple's / wedding Instagram
+    instagram: "https://www.instagram.com/_muhammad_thanseem?utm_source=qr",
+  },
+
+  blessing: {
+    arabic:
+      "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ",
+    translation:
+      "And of His signs is that He created for you mates from among yourselves, that you may find tranquility in them; and He placed between you affection and mercy. Indeed, in that are signs for a people who give thought.",
+    reference: "Surah Ar-Rum · 30:21",
+  },
+
   story: [
     {
       title: "A Beautiful Beginning",

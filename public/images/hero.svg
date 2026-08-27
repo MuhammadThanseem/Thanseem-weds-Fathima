@@ -1,187 +1,256 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Muslim wedding invitation ornament">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#241f12"/>
-      <stop offset="0.45" stop-color="#332e1b"/>
-      <stop offset="1" stop-color="#14110a"/>
-    </linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#efe6d4"/>
-      <stop offset="0.5" stop-color="#cbb78e"/>
-      <stop offset="1" stop-color="#8f7a4d"/>
-    </linearGradient>
-    <radialGradient id="centerGlow" cx="0.5" cy="0.44" r="0.55">
-      <stop offset="0" stop-color="#cbb78e" stop-opacity="0.28"/>
-      <stop offset="0.55" stop-color="#cbb78e" stop-opacity="0.08"/>
-      <stop offset="1" stop-color="#cbb78e" stop-opacity="0"/>
+    <radialGradient id="bg" cx="0.5" cy="0.4" r="0.92">
+      <stop offset="0" stop-color="#463d24"/>
+      <stop offset="0.45" stop-color="#332d1b"/>
+      <stop offset="1" stop-color="#0f0c06"/>
     </radialGradient>
-    <radialGradient id="archGlow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#1a1710" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#1a1710" stop-opacity="0"/>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f6ecd6"/>
+      <stop offset="0.4" stop-color="#dcc79c"/>
+      <stop offset="0.7" stop-color="#c3aa78"/>
+      <stop offset="1" stop-color="#8b7448"/>
+    </linearGradient>
+    <radialGradient id="portal" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0b0904" stop-opacity="0.55"/>
+      <stop offset="0.62" stop-color="#0b0904" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#0b0904" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f8e6b6" stop-opacity="0.4"/>
+      <stop offset="0.45" stop-color="#e9c583" stop-opacity="0.11"/>
+      <stop offset="1" stop-color="#e9c583" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="lampGlow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#f6dca2" stop-opacity="0.6"/>
-      <stop offset="0.6" stop-color="#e7b35f" stop-opacity="0.18"/>
-      <stop offset="1" stop-color="#e7b35f" stop-opacity="0"/>
+      <stop offset="0" stop-color="#fbe4ad" stop-opacity="0.7"/>
+      <stop offset="0.55" stop-color="#eab863" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#eab863" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="stars" width="150" height="150" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+    <linearGradient id="ray" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#f4e3b7" stop-opacity="0.6"/>
+      <stop offset="0.5" stop-color="#f4e3b7" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#f4e3b7" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#cbb78e" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#cbb78e" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#cbb78e" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="fade" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.58" stop-color="#fff" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDev="1.7"/></filter>
+    <filter id="mid" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDev="5"/></filter>
+    <filter id="glow" x="-120%" y="-120%" width="340%" height="340%"><feGaussianBlur stdDev="16"/></filter>
+
+    <pattern id="girih" width="132" height="132" patternUnits="userSpaceOnUse">
       <g fill="none" stroke="#cbb78e" stroke-width="1">
-        <path d="M75 28 L122 75 L75 122 L28 75 Z"/>
-        <path d="M45 45 L105 45 L105 105 L45 105 Z"/>
+        <path d="M66 16 L116 66 L66 116 L16 66 Z"/>
+        <path d="M40 40 L92 40 L92 92 L40 92 Z"/>
+        <circle cx="66" cy="66" r="7"/>
       </g>
     </pattern>
 
-    <!-- reusable corner arabesque (fits ~0..250 box) -->
-    <g id="corner" fill="none" stroke="url(#gold)" stroke-width="2.2" stroke-linecap="round">
-      <path d="M0 150 C 0 66 66 0 150 0"/>
-      <path d="M0 150 C 46 150 78 128 86 82 C 92 46 120 30 150 34"/>
-      <path d="M30 60 C 54 44 78 52 80 78 C 82 100 64 112 48 104 C 36 98 36 80 50 76"/>
-      <path d="M120 20 C 118 44 128 66 152 70"/>
-      <circle cx="150" cy="0" r="0"/>
-      <path d="M6 6 L46 6 M6 6 L6 46" stroke-width="3"/>
-      <circle cx="150" cy="150" r="5" fill="url(#gold)" stroke="none"/>
-    </g>
+    <mask id="fadeMask"><rect x="120" y="-420" width="1680" height="1680" fill="url(#fade)"/></mask>
 
-    <!-- hanging lantern (fanoos), origin at suspension point -->
-    <g id="lantern" fill="none" stroke="url(#gold)" stroke-width="2" stroke-linejoin="round">
-      <line x1="0" y1="0" x2="0" y2="120"/>
-      <path d="M-24 130 Q 0 112 24 130 L 18 150 L -18 150 Z"/>
-      <path d="M-30 156 L 30 156 L 24 300 Q 0 330 -24 300 Z"/>
-      <path d="M-30 156 L 30 156 M -26 196 L 26 196 M -22 244 L 22 244"/>
-      <path d="M-6 300 Q 0 320 6 300 M 0 318 L 0 336"/>
-      <ellipse cx="0" cy="232" rx="34" ry="60" fill="url(#lampGlow)" stroke="none"/>
-    </g>
+    <path id="rayL" d="M0 0 L-4 -580 L4 -580 Z" fill="url(#ray)"/>
+    <path id="rayS" d="M0 0 L-2.5 -370 L2.5 -370 Z" fill="url(#ray)"/>
 
-    <!-- small sparkle -->
-    <g id="spark" fill="url(#gold)">
-      <path d="M0 -9 L2 -2 L9 0 L2 2 L0 9 L-2 2 L-9 0 L-2 -2 Z"/>
+    <path id="leaf" d="M0 0 C 7 -14 18 -20 31 -22 C 20 -10 12 -3 0 0 Z"/>
+
+    <g id="branch">
+      <path d="M0 0 C 12 -78 -16 -150 -4 -248 C 2 -298 22 -330 46 -356" fill="none" stroke="url(#gold)" stroke-width="2"/>
+      <g fill="url(#gold)">
+        <use href="#leaf" transform="translate(2,-58) rotate(-36)"/>
+        <use href="#leaf" transform="translate(-8,-56) rotate(150) scale(0.8)"/>
+        <use href="#leaf" transform="translate(-12,-128) rotate(-18)"/>
+        <use href="#leaf" transform="translate(-18,-124) rotate(158) scale(0.8)"/>
+        <use href="#leaf" transform="translate(-4,-196) rotate(4)"/>
+        <use href="#leaf" transform="translate(10,-260) rotate(26) scale(0.85)"/>
+        <use href="#leaf" transform="translate(32,-318) rotate(42) scale(0.72)"/>
+        <circle cx="46" cy="-356" r="3"/>
+      </g>
     </g>
 
     <mask id="crescentMask">
-      <circle cx="1300" cy="150" r="72" fill="#fff"/>
-      <circle cx="1334" cy="140" r="63" fill="#000"/>
+      <circle cx="1380" cy="176" r="58" fill="#fff"/>
+      <circle cx="1409" cy="167" r="50" fill="#000"/>
     </mask>
 
-    <!-- minaret silhouette, base at y=0 pointing up -->
-    <g id="minaret" fill="#231f10">
-      <rect x="-22" y="-240" width="44" height="240"/>
-      <rect x="-30" y="-250" width="60" height="14"/>
-      <path d="M-26 -250 Q -26 -300 0 -318 Q 26 -300 26 -250 Z"/>
-      <path d="M0 -318 L0 -344 M-7 -334 Q 0 -352 7 -334"/>
+    <g id="spark" fill="url(#gold)">
+      <path d="M0 -10 L2.2 -2.2 L10 0 L2.2 2.2 L0 10 L-2.2 2.2 L-10 0 L-2.2 -2.2 Z"/>
     </g>
-    <!-- side dome silhouette -->
-    <g id="sidedome" fill="#231f10">
-      <rect x="-52" y="-92" width="104" height="92"/>
-      <path d="M-52 -92 Q -52 -150 -26 -170 Q -44 -190 -26 -206 Q -10 -216 0 -218
-               Q 10 -216 26 -206 Q 44 -190 26 -170 Q 52 -150 52 -92 Z"/>
-      <path d="M0 -218 L0 -238 M-6 -230 Q 0 -246 6 -230"/>
+
+    <g id="tassel" fill="url(#gold)" stroke="none">
+      <line x1="0" y1="0" x2="0" y2="24" stroke="url(#gold)" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="0" cy="30" r="3.6"/>
+      <path d="M0 36 C 6 44 6 64 0 80 C -6 64 -6 44 0 36 Z"/>
+      <circle cx="0" cy="86" r="2"/>
+    </g>
+
+    <g id="stud" fill="url(#gold)">
+      <circle cx="0" cy="-9" r="5"/><circle cx="9" cy="0" r="5"/>
+      <circle cx="0" cy="9" r="5"/><circle cx="-9" cy="0" r="5"/>
+      <circle r="4.5" fill="#2a2412"/>
+      <circle r="2" fill="url(#gold)"/>
+    </g>
+
+    <!-- horizontal scroll flourish, grows left from origin, hugs the border inward -->
+    <g id="hflourish" fill="none" stroke="url(#gold)" stroke-width="1.8" stroke-linecap="round">
+      <path d="M0 0 C -50 0 -82 4 -120 1 C -150 -1 -166 10 -166 28
+               C -166 42 -152 50 -140 44 C -131 40 -132 29 -142 28"/>
+      <path d="M-46 3 C -64 11 -74 25 -72 42"/>
+      <path d="M-92 -1 C -104 -7 -118 -1 -120 11"/>
+    </g>
+
+    <!-- ornate arabesque corner, inner point at origin, spreads along both edges -->
+    <g id="corner">
+      <g fill="none" stroke="url(#gold)" stroke-width="2.2" stroke-linecap="round">
+        <path d="M0 150 C 0 67 67 0 150 0"/>
+        <path d="M20 150 C 20 90 74 40 150 22"/>
+        <path d="M2 150 C 40 150 62 124 62 90 C 62 64 46 50 30 56 C 20 60 20 72 30 74"/>
+        <path d="M150 2 C 150 40 124 62 90 62 C 64 62 50 46 56 30 C 60 20 72 20 74 30"/>
+        <path d="M150 150 C 122 150 104 130 106 108"/>
+      </g>
+      <g fill="url(#gold)">
+        <use href="#leaf" transform="translate(150,4) rotate(34) scale(0.95)"/>
+        <use href="#leaf" transform="translate(4,150) rotate(124) scale(0.95)"/>
+        <use href="#leaf" transform="translate(112,112) rotate(45) scale(0.7)"/>
+        <use href="#stud" transform="translate(150,150) scale(0.58)"/>
+      </g>
     </g>
   </defs>
 
   <!-- base -->
   <rect width="1920" height="1200" fill="url(#bg)"/>
-  <rect width="1920" height="1200" fill="url(#stars)" opacity="0.05"/>
-  <rect width="1920" height="1200" fill="url(#centerGlow)"/>
+  <ellipse cx="960" cy="330" rx="860" ry="680" fill="url(#halo)" filter="url(#glow)"/>
+  <rect width="1920" height="1200" fill="url(#girih)" opacity="0.07" mask="url(#fadeMask)"/>
 
-  <!-- night sky: faint crescent + scattered stars -->
-  <g opacity="0.55">
-    <circle cx="1300" cy="150" r="72" fill="url(#gold)" opacity="0.5" mask="url(#crescentMask)"/>
-    <use href="#spark" transform="translate(1392,168) scale(0.7)"/>
-    <g fill="#e8dfd0">
-      <circle cx="360" cy="180" r="2.4"/><circle cx="520" cy="120" r="1.8"/>
-      <circle cx="240" cy="300" r="1.6"/><circle cx="1660" cy="360" r="2"/>
-      <circle cx="1740" cy="150" r="1.6"/><circle cx="1280" cy="140" r="1.8"/>
-      <circle cx="640" cy="240" r="1.5"/><circle cx="1560" cy="470" r="1.6"/>
-    </g>
+  <!-- radiant sunburst behind the arch -->
+  <g transform="translate(960,220)" opacity="0.58" filter="url(#soft)" mask="url(#fadeMask)">
+    <use href="#rayL" transform="rotate(0)"/>   <use href="#rayS" transform="rotate(15)"/>
+    <use href="#rayL" transform="rotate(30)"/>  <use href="#rayS" transform="rotate(45)"/>
+    <use href="#rayL" transform="rotate(60)"/>  <use href="#rayS" transform="rotate(75)"/>
+    <use href="#rayL" transform="rotate(90)"/>  <use href="#rayS" transform="rotate(105)"/>
+    <use href="#rayL" transform="rotate(120)"/> <use href="#rayS" transform="rotate(135)"/>
+    <use href="#rayL" transform="rotate(150)"/> <use href="#rayS" transform="rotate(165)"/>
+    <use href="#rayL" transform="rotate(180)"/> <use href="#rayS" transform="rotate(195)"/>
+    <use href="#rayL" transform="rotate(210)"/> <use href="#rayS" transform="rotate(225)"/>
+    <use href="#rayL" transform="rotate(240)"/> <use href="#rayS" transform="rotate(255)"/>
+    <use href="#rayL" transform="rotate(270)"/> <use href="#rayS" transform="rotate(285)"/>
+    <use href="#rayL" transform="rotate(300)"/> <use href="#rayS" transform="rotate(315)"/>
+    <use href="#rayL" transform="rotate(330)"/> <use href="#rayS" transform="rotate(345)"/>
   </g>
 
-  <!-- decorative border frame -->
-  <g fill="none" stroke="url(#gold)">
-    <rect x="46" y="46" width="1828" height="1108" stroke-width="2.5"/>
-    <rect x="60" y="60" width="1800" height="1080" stroke-width="1" opacity="0.7"/>
-    <g fill="url(#gold)" stroke="none" opacity="0.9">
-      <path d="M960 40 l12 14 -12 14 -12 -14 Z"/>
-      <path d="M960 1146 l12 14 -12 14 -12 -14 Z"/>
-      <path d="M40 600 l14 12 -14 12 -14 -12 Z"/>
-      <path d="M1880 600 l14 12 -14 12 -14 -12 Z"/>
-    </g>
-  </g>
-  <use href="#corner" x="70" y="70"/>
-  <use href="#corner" transform="translate(1850,70) scale(-1,1)"/>
-  <use href="#corner" transform="translate(70,1130) scale(1,-1)"/>
-  <use href="#corner" transform="translate(1850,1130) scale(-1,-1)"/>
-
-  <!-- central pointed arch (mihrab) -->
+  <!-- ── wide cusped (multifoil) arch canopy ── -->
   <g>
-    <path d="M655 1052 L655 470 C655 300 782 150 960 150 C1138 150 1265 300 1265 470 L1265 1052 Z"
-          fill="url(#archGlow)"/>
-    <path d="M655 1052 L655 470 C655 300 782 150 960 150 C1138 150 1265 300 1265 470 L1265 1052"
-          fill="none" stroke="url(#gold)" stroke-width="3.5"/>
-    <path d="M679 1052 L679 478 C679 316 799 174 960 174 C1121 174 1241 316 1241 478 L1241 1052"
-          fill="none" stroke="url(#gold)" stroke-width="1.4" opacity="0.75"/>
-    <!-- keystone medallion -->
-    <g transform="translate(960,120)" fill="none" stroke="url(#gold)" stroke-width="2">
-      <path d="M0 -26 L7 -7 L26 0 L7 7 L0 26 L-7 7 L-26 0 L-7 -7 Z"/>
-      <circle cx="0" cy="0" r="6" fill="url(#gold)" stroke="none"/>
-    </g>
-    <!-- springline rosettes -->
+    <ellipse cx="960" cy="760" rx="600" ry="440" fill="url(#portal)"/>
+    <path d="M440 880
+             A150 150 0 0 0 464 694 A150 150 0 0 0 533 519 A150 150 0 0 0 644 368
+             A150 150 0 0 0 790 248 A150 150 0 0 0 960 170
+             A150 150 0 0 0 1130 248 A150 150 0 0 0 1276 368 A150 150 0 0 0 1387 519
+             A150 150 0 0 0 1456 694 A150 150 0 0 0 1480 880"
+          fill="none" stroke="url(#gold)" stroke-width="7" opacity="0.25" filter="url(#mid)"/>
+    <path d="M440 880
+             A150 150 0 0 0 464 694 A150 150 0 0 0 533 519 A150 150 0 0 0 644 368
+             A150 150 0 0 0 790 248 A150 150 0 0 0 960 170
+             A150 150 0 0 0 1130 248 A150 150 0 0 0 1276 368 A150 150 0 0 0 1387 519
+             A150 150 0 0 0 1456 694 A150 150 0 0 0 1480 880"
+          fill="none" stroke="url(#gold)" stroke-width="3.2"/>
+    <!-- springer knots + tassels -->
+    <use href="#tassel" transform="translate(440,884)"/>
+    <use href="#tassel" transform="translate(1480,884)"/>
     <g fill="url(#gold)">
-      <circle cx="655" cy="470" r="6"/><circle cx="1265" cy="470" r="6"/>
+      <circle cx="440" cy="880" r="6"/><circle cx="1480" cy="880" r="6"/>
+      <circle cx="440" cy="880" r="14" fill="none" stroke="url(#gold)" stroke-width="1.4"/>
+      <circle cx="1480" cy="880" r="14" fill="none" stroke="url(#gold)" stroke-width="1.4"/>
     </g>
   </g>
 
-  <!-- central mosque lamp hanging from apex -->
-  <g transform="translate(960,174)" fill="none" stroke="url(#gold)" stroke-width="2" stroke-linejoin="round">
-    <line x1="-14" y1="0" x2="-14" y2="34"/>
-    <line x1="0" y1="0" x2="0" y2="30"/>
-    <line x1="14" y1="0" x2="14" y2="34"/>
-    <path d="M-40 34 Q 0 14 40 34 L 30 60 Q 0 46 -30 60 Z"/>
-    <rect x="-18" y="60" width="36" height="26"/>
-    <path d="M-18 86 C -78 108 -84 196 0 214 C 84 196 78 108 18 86 Z"/>
-    <path d="M0 214 L0 236 M -8 224 Q 0 244 8 224"/>
-    <ellipse cx="0" cy="150" rx="72" ry="86" fill="url(#lampGlow)" stroke="none"/>
-    <path d="M-52 150 Q 0 118 52 150 M -50 174 Q 0 146 50 174" opacity="0.7"/>
+  <!-- apex star -->
+  <g transform="translate(960,150)">
+    <circle cx="0" cy="0" r="34" fill="url(#lampGlow)" filter="url(#soft)"/>
+    <path d="M0 -20 L5.5 -5.5 L20 0 L5.5 5.5 L0 20 L-5.5 5.5 L-20 0 L-5.5 -5.5 Z"
+          fill="none" stroke="url(#gold)" stroke-width="1.8"/>
+    <circle cx="0" cy="0" r="4" fill="url(#gold)"/>
   </g>
 
-  <!-- flanking lanterns -->
-  <use href="#lantern" x="360" y="80"/>
-  <use href="#lantern" x="1560" y="80"/>
-  <use href="#lantern" x="230" y="150" transform="scale(0.8)" opacity="0.6"/>
-  <use href="#lantern" transform="translate(1690,120) scale(0.8)" opacity="0.6"/>
+  <!-- hanging lamp inside the arch -->
+  <g transform="translate(960,172)" fill="none" stroke="url(#gold)" stroke-width="2" stroke-linejoin="round">
+    <ellipse cx="0" cy="150" rx="82" ry="98" fill="url(#lampGlow)" stroke="none" filter="url(#soft)"/>
+    <line x1="-13" y1="0" x2="-13" y2="30"/><line x1="0" y1="0" x2="0" y2="26"/><line x1="13" y1="0" x2="13" y2="30"/>
+    <path d="M-38 30 Q0 12 38 30 L28 54 Q0 42 -28 54 Z"/>
+    <rect x="-17" y="54" width="34" height="24"/>
+    <path d="M-17 78 C -74 100 -78 186 0 204 C 78 186 74 100 17 78 Z"/>
+    <path d="M-46 150 Q0 122 46 150 M-44 172 Q0 146 44 172" opacity="0.65"/>
+    <path d="M0 204 L0 226 M-7 216 Q0 234 7 216"/>
+  </g>
 
-  <!-- bottom mosque skyline silhouette -->
+  <!-- crescent + star -->
+  <g opacity="0.6">
+    <circle cx="1380" cy="176" r="64" fill="url(#lampGlow)" filter="url(#soft)"/>
+    <circle cx="1380" cy="176" r="58" fill="url(#gold)" opacity="0.48" mask="url(#crescentMask)"/>
+    <use href="#spark" transform="translate(1468,166) scale(0.64)"/>
+  </g>
+
+  <!-- particles + bokeh -->
+  <g fill="#f4e3b7">
+    <circle cx="300" cy="210" r="2.1"/><circle cx="520" cy="128" r="1.6"/><circle cx="234" cy="336" r="1.5"/>
+    <circle cx="636" cy="252" r="1.5"/><circle cx="1286" cy="150" r="1.7"/><circle cx="1560" cy="358" r="1.7"/>
+    <circle cx="1706" cy="214" r="1.4"/><circle cx="384" cy="560" r="1.8"/><circle cx="1540" cy="604" r="1.6"/>
+    <circle cx="250" cy="720" r="1.6"/><circle cx="1664" cy="760" r="1.6"/><circle cx="960" cy="470" r="1.5"/>
+  </g>
+  <g fill="#f4e3b7" opacity="0.11" filter="url(#soft)">
+    <circle cx="356" cy="430" r="16"/><circle cx="1584" cy="470" r="13"/>
+    <circle cx="470" cy="820" r="11"/><circle cx="1470" cy="846" r="15"/>
+  </g>
   <g>
-    <rect x="0" y="1120" width="1920" height="80" fill="#231f10"/>
-    <use href="#sidedome" transform="translate(360,1120) scale(0.85)"/>
-    <use href="#sidedome" transform="translate(1560,1120) scale(0.85)"/>
-    <use href="#minaret" transform="translate(690,1120)"/>
-    <use href="#minaret" transform="translate(1230,1120)"/>
-    <!-- central dome -->
-    <path d="M745 1120
-             C 745 1012 762 952 816 906
-             C 782 872 794 838 830 818
-             C 856 804 900 795 960 793
-             C 1020 795 1064 804 1090 818
-             C 1126 838 1138 872 1104 906
-             C 1158 952 1175 1012 1175 1120 Z" fill="#231f10"/>
-    <line x1="960" y1="800" x2="960" y2="748" stroke="#231f10" stroke-width="4"/>
-    <circle cx="960" cy="744" r="6" fill="#231f10"/>
-    <!-- gold rim highlight -->
-    <path d="M747 1030 C 750 918 806 812 960 800 C 1114 812 1170 918 1173 1030"
-          fill="none" stroke="url(#gold)" stroke-width="2" opacity="0.5"/>
-    <g fill="url(#gold)" opacity="0.75">
-      <circle cx="960" cy="723" r="3.5"/><circle cx="690" cy="874" r="3"/><circle cx="1230" cy="874" r="3"/>
-    </g>
+    <use href="#spark" transform="translate(470,520) scale(0.82)" opacity="0.8"/>
+    <use href="#spark" transform="translate(1470,540) scale(0.66)" opacity="0.8"/>
+    <use href="#spark" transform="translate(560,884) scale(0.6)" opacity="0.7"/>
+    <use href="#spark" transform="translate(1380,904) scale(0.78)" opacity="0.7"/>
   </g>
 
-  <!-- sparkles -->
-  <g opacity="0.8">
-    <use href="#spark" transform="translate(470,560) scale(0.9)"/>
-    <use href="#spark" transform="translate(1450,520) scale(0.8)"/>
-    <use href="#spark" transform="translate(560,820) scale(0.7)"/>
-    <use href="#spark" transform="translate(1370,860) scale(0.9)"/>
-    <use href="#spark" transform="translate(960,470) scale(0.6)"/>
-    <use href="#spark" transform="translate(300,660) scale(0.6)"/>
-    <use href="#spark" transform="translate(1630,700) scale(0.6)"/>
+  <!-- ── ornate engraved border ── -->
+  <g fill="none" stroke="url(#gold)">
+    <rect x="40" y="40" width="1840" height="1120" stroke-width="2.8" opacity="0.92"/>
+    <rect x="52" y="52" width="1816" height="1096" stroke-width="1" opacity="0.35"/>
+    <rect x="66" y="66" width="1788" height="1068" stroke-width="3.4" stroke-linecap="round"
+          stroke-dasharray="0.1 22" opacity="0.7"/>
+  </g>
+
+  <!-- corner arabesques -->
+  <g opacity="0.85">
+    <use href="#corner" transform="translate(44,44)"/>
+    <use href="#corner" transform="translate(1876,44) scale(-1,1)"/>
+    <use href="#corner" transform="translate(44,1156) scale(1,-1)"/>
+    <use href="#corner" transform="translate(1876,1156) scale(-1,-1)"/>
+  </g>
+
+  <!-- edge medallions + flanking scrollwork -->
+  <g opacity="0.85">
+    <g transform="translate(960,53)">
+      <use href="#stud"/>
+      <use href="#hflourish"/>
+      <use href="#hflourish" transform="scale(-1,1)"/>
+    </g>
+    <g transform="translate(960,1147)">
+      <use href="#stud"/>
+      <use href="#hflourish" transform="scale(1,-1)"/>
+      <use href="#hflourish" transform="scale(-1,-1)"/>
+    </g>
+    <g transform="translate(53,600) rotate(90)">
+      <use href="#stud"/>
+      <use href="#hflourish"/>
+      <use href="#hflourish" transform="scale(-1,1)"/>
+    </g>
+    <g transform="translate(1867,600) rotate(-90)">
+      <use href="#stud"/>
+      <use href="#hflourish"/>
+      <use href="#hflourish" transform="scale(-1,1)"/>
+    </g>
   </g>
 </svg>
