@@ -107,7 +107,7 @@ export default function HeroNotifyModal() {
                 className="text-sm font-light mb-1"
                 style={{ color: "rgba(232,223,208,0.75)" }}
               >
-                Er. Muhammed Thanseem C &amp; Dr. Fathima
+                Muhammed Thanseem C &amp; Fathima
               </p>
               <p
                 className="text-xs font-light mb-6 tracking-wide"

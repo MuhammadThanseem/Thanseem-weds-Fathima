@@ -31,7 +31,7 @@ export default function OpenInvitation({
         </div>
 
         <h2 className="font-heading text-4xl mb-3">
-          Er. Muhammed Thanseem C
+          Muhammed Thanseem C
         </h2>
 
         <p className="text-accent mb-3">
@@ -39,7 +39,7 @@ export default function OpenInvitation({
         </p>
 
         <h2 className="font-heading text-4xl">
-          Dr. Fathima
+          Fathima
         </h2>
 
         <button

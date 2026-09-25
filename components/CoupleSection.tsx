@@ -68,7 +68,7 @@ export default function CoupleSection() {
             viewport={{ once: true }}
             className="font-heading text-2xl sm:text-3xl md:text-4xl text-foreground -mt-6 sm:-mt-8 mb-2"
           >
-            Er. Muhammed Thanseem C
+            Muhammed Thanseem C
           </motion.h3>
 
           <motion.p
@@ -88,7 +88,7 @@ export default function CoupleSection() {
             viewport={{ once: true }}
             className="font-heading text-2xl sm:text-3xl md:text-4xl text-foreground mb-6 sm:mb-8"
           >
-            Dr. Fathima
+            Fathima
           </motion.h3>
 
           <motion.p

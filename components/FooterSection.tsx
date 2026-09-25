@@ -87,7 +87,7 @@ export default function FooterSection() {
               className="font-heading text-lg sm:text-xl md:text-2xl tracking-normal whitespace-nowrap"
               style={{ color: "var(--beige-light)" }}
             >
-              Er. Muhammed Thanseem C
+              Muhammed Thanseem C
             </p>
             <p
               className="text-lg my-2 font-light"
@@ -99,7 +99,7 @@ export default function FooterSection() {
               className="font-heading text-lg sm:text-xl md:text-2xl tracking-normal whitespace-nowrap"
               style={{ color: "var(--beige-light)" }}
             >
-              Dr. Fathima
+              Fathima
             </p>
 
             <motion.div

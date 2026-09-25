@@ -44,7 +44,7 @@ export default function Home() {
         >
           <Image
             src="/images/hero.svg"
-            alt="Er. Muhammed Thanseem C & Dr. Fathima"
+            alt="Muhammed Thanseem C & Fathima"
             fill
             className="object-cover"
             style={{ objectPosition: "50% 50%" }}
@@ -135,7 +135,7 @@ export default function Home() {
               transition={{ duration: 0.9, delay: 2.2 }}
               className="font-heading text-4xl sm:text-5xl md:text-6xl leading-tight gold-gradient"
             >
-              Er. Muhammed Thanseem C
+              Muhammed Thanseem C
             </motion.h1>
 
             <motion.p
@@ -152,7 +152,7 @@ export default function Home() {
               transition={{ duration: 0.9, delay: 2.45 }}
               className="font-heading text-4xl sm:text-5xl md:text-6xl leading-tight gold-gradient"
             >
-              Dr. Fathima
+              Fathima
             </motion.h1>
 
             <motion.div
