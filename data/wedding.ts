@@ -1,16 +1,32 @@
 export const weddingData = {
   groom: "Muhammed Thanseem C",
 
-  bride: "Fathima",
+  bride: "Fathima A",
 
-  weddingDate: "2026-12-19T16:00:00",
+  // Countdown target — the Nikkah
+  weddingDate: "2026-12-20T16:00:00",
+
+  // Short form shown in the hero, footer and invite modal
+  dateDisplay: "20 & 21 December 2026",
 
   nikah: {
     title: "Nikkah & Reception",
-    date: "19 December 2026",
-    hijri: "10th Rajab, 1448",
-    time: "4:00 PM",
-    reception: "5:00 PM onwards",
+    events: [
+      {
+        name: "Nikkah",
+        day: "Sunday",
+        date: "20 December 2026",
+        hijri: "11th Rajab, 1448",
+        time: "4:00 PM",
+      },
+      {
+        name: "Reception",
+        day: "Monday",
+        date: "21 December 2026",
+        hijri: "12th Rajab, 1448",
+        time: "6:00 PM onwards",
+      },
+    ],
     venue: "Baithul Huda (Chalil)",
     address: "Malarakkal, Villiappally, Vatakara",
     mapLink: "https://www.google.com/maps/search/?api=1&query=Baithul+Huda+Chalil+Malarakkal+Villiappally+Vatakara",

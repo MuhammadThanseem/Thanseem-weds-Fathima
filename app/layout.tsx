@@ -16,7 +16,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Muhammed Thanseem C ❤️ Fathima",
+  title: "Muhammed Thanseem C ❤️ Fathima A",
   description: "Wedding Invitation",
 };
 

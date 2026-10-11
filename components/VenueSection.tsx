@@ -41,7 +41,7 @@ export default function VenueSection() {
                   className="inline-block text-xs uppercase tracking-[4px] font-light mb-4"
                   style={{ color: "var(--beige-warm)" }}
                 >
-                  Nikkah &amp; Reception
+                  Two Days of Celebration
                 </motion.span>
 
                 <h3
@@ -53,11 +53,14 @@ export default function VenueSection() {
 
                 <div className="decorative-line shimmer-line h-px my-6 w-14" />
 
-                <div className="space-y-4">
-                  <Row label="Date" value={nikah.date} delay={0.2} />
-                  <Row label="Hijri" value={nikah.hijri} delay={0.25} />
-                  <Row label="Nikkah" value={nikah.time} delay={0.3} />
-                  <Row label="Reception" value={nikah.reception} delay={0.35} />
+                {/* One card per day */}
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {nikah.events.map((event, i) => (
+                    <EventCard key={event.name} event={event} delay={0.2 + i * 0.1} />
+                  ))}
+                </div>
+
+                <div className="space-y-3 mt-8">
                   <Row label="Venue" value={nikah.venue} delay={0.4} />
                   <Row label="Address" value={nikah.address} delay={0.45} />
                 </div>
@@ -73,7 +76,7 @@ export default function VenueSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.45 }}
                 viewport={{ once: true }}
-                className="mt-10 inline-block text-center px-8 py-4 rounded-full font-light btn-modern text-sm tracking-widest uppercase transition-all"
+                className="mt-10 self-stretch sm:self-start text-center px-8 py-4 rounded-full font-light btn-modern text-sm tracking-widest uppercase transition-all"
                 style={{
                   background: "linear-gradient(135deg, var(--beige), var(--beige-warm))",
                   color: "var(--black)",
@@ -110,6 +113,47 @@ export default function VenueSection() {
   );
 }
 
+type WeddingEvent = (typeof weddingData)["nikah"]["events"][number];
+
+function EventCard({ event, delay }: { event: WeddingEvent; delay: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay }}
+      viewport={{ once: true }}
+      className="rounded-xl p-5 flex flex-col"
+      style={{
+        border: "1px solid rgba(203,183,140,0.22)",
+        background: "rgba(203,183,140,0.05)",
+      }}
+    >
+      <span
+        className="font-light uppercase tracking-[3px] text-xs"
+        style={{ color: "var(--beige-warm)" }}
+      >
+        {event.name}
+      </span>
+      <span
+        className="font-heading text-xl sm:text-2xl leading-snug mt-2"
+        style={{ color: "var(--beige-light)" }}
+      >
+        {event.date}
+      </span>
+      <span className="font-light text-xs mt-1" style={{ color: "rgba(232,223,208,0.55)" }}>
+        {event.day} · {event.hijri}
+      </span>
+      <div
+        className="h-px w-full my-4"
+        style={{ background: "linear-gradient(to right, rgba(203,183,140,0.3), transparent)" }}
+      />
+      <span className="font-light text-sm tracking-wide" style={{ color: "var(--beige)" }}>
+        {event.time}
+      </span>
+    </motion.div>
+  );
+}
+
 function Row({ label, value, delay }: { label: string; value: string; delay: number }) {
   return (
     <motion.div
@@ -117,10 +161,10 @@ function Row({ label, value, delay }: { label: string; value: string; delay: num
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.45, delay }}
       viewport={{ once: true }}
-      className="flex gap-3 items-baseline"
+      className="flex gap-4 items-baseline"
     >
       <span
-        className="font-light uppercase tracking-[3px] text-xs flex-shrink-0 w-16"
+        className="font-light uppercase tracking-[3px] text-xs flex-shrink-0 w-20"
         style={{ color: "rgba(203,183,140,0.55)" }}
       >
         {label}

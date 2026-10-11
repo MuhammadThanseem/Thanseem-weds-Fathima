@@ -13,6 +13,7 @@ import VenueSection from "@/components/VenueSection";
 import RSVPSection from "@/components/RSVPSection";
 import FooterSection from "@/components/FooterSection";
 import HeroNotifyModal from "@/components/HeroNotifyModal";
+import { weddingData } from "@/data/wedding";
 
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
@@ -44,7 +45,7 @@ export default function Home() {
         >
           <Image
             src="/images/hero.svg"
-            alt="Muhammed Thanseem C & Fathima"
+            alt="Muhammed Thanseem C & Fathima A"
             fill
             className="object-cover"
             style={{ objectPosition: "50% 50%" }}
@@ -152,7 +153,7 @@ export default function Home() {
               transition={{ duration: 0.9, delay: 2.45 }}
               className="font-heading text-4xl sm:text-5xl md:text-6xl leading-tight gold-gradient"
             >
-              Fathima
+              Fathima A
             </motion.h1>
 
             <motion.div
@@ -175,7 +176,7 @@ export default function Home() {
                 className="font-heading text-2xl sm:text-3xl md:text-4xl tracking-wide"
                 style={{ color: "var(--beige-light)" }}
               >
-                19 December 2026
+                {weddingData.dateDisplay}
               </h2>
             </motion.div>
           </motion.div>

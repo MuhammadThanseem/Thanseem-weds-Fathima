@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { weddingData } from "@/data/wedding";
 
 const STORAGE_KEY = "wedding-notify-seen-v1";
 
@@ -107,13 +108,13 @@ export default function HeroNotifyModal() {
                 className="text-sm font-light mb-1"
                 style={{ color: "rgba(232,223,208,0.75)" }}
               >
-                Muhammed Thanseem C &amp; Fathima
+                Muhammed Thanseem C &amp; Fathima A
               </p>
               <p
                 className="text-xs font-light mb-6 tracking-wide"
                 style={{ color: "rgba(203,183,140,0.5)" }}
               >
-                19 December 2026 · Villiappally, Vatakara
+                {weddingData.dateDisplay} · Villiappally, Vatakara
               </p>
 
               <div

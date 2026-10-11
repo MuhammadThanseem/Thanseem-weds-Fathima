@@ -39,7 +39,7 @@ export default function OpenInvitation({
         </p>
 
         <h2 className="font-heading text-4xl">
-          Fathima
+          Fathima A
         </h2>
 
         <button

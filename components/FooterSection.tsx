@@ -99,7 +99,7 @@ export default function FooterSection() {
               className="font-heading text-lg sm:text-xl md:text-2xl tracking-normal whitespace-nowrap"
               style={{ color: "var(--beige-light)" }}
             >
-              Fathima
+              Fathima A
             </p>
 
             <motion.div
@@ -107,14 +107,14 @@ export default function FooterSection() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
               viewport={{ once: true }}
-              className="mt-8 inline-block px-6 py-3 rounded-full text-sm font-light tracking-widest uppercase"
+              className="mt-8 inline-block px-5 sm:px-6 py-3 rounded-full text-xs sm:text-sm font-light tracking-widest uppercase whitespace-nowrap"
               style={{
                 border: "1px solid rgba(203,183,140,0.3)",
                 color: "var(--beige)",
                 background: "rgba(203,183,140,0.06)",
               }}
             >
-              19 · December · 2026
+              20 &amp; 21 · December · 2026
             </motion.div>
           </motion.div>
 
